@@ -80,16 +80,6 @@ const projects = [
   },
 ];
 
-// 파트너 (임시)
-const partners = [
-  "Partner A",
-  "Partner B",
-  "Partner C",
-  "Partner D",
-  "Partner E",
-  "Partner F",
-];
-
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -316,22 +306,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== 파트너 섹션 ===== */}
-        <section className={`${styles.partners} ${styles.animateOnScroll}`} aria-label="파트너사">
-          <div className={styles.partnersInner}>
-            <p className={styles.partnersTitle}>
-              다양한 파트너사와 함께 성장합니다
-            </p>
-            <div className={styles.partnersGrid}>
-              {partners.map((partner, index) => (
-                <div key={index} className={styles.partnerLogo}>
-                  {partner}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ===== 바로가기 카드 섹션 ===== */}
         <section className={`${styles.quickLinks} ${styles.animateOnScroll}`} aria-label="바로가기">
           <div className={styles.quickLinksInner}>
@@ -379,7 +353,6 @@ export default function Home() {
           subtitle="임베디드 전문가와 함께 여러분의 아이디어를 현실로 만들어 보세요. 무료 상담을 통해 최적의 솔루션을 제안해 드립니다."
           primaryText="무료 상담 신청"
           primaryHref="/contact"
-          secondaryText="042-000-0000"
         />
       </main>
     </div>

@@ -53,8 +53,8 @@ export default function Header() {
           <Image
             src="/gsplplus_logo.png"
             alt="GSPLPLUS"
-            width={140}
-            height={35}
+            width={67}
+            height={32}
             className={styles.logo}
             priority
           />
@@ -77,10 +77,6 @@ export default function Header() {
 
         {/* 데스크탑 CTA */}
         <div className={styles.desktopActions}>
-          <a href="tel:042-000-0000" className={styles.phoneLink}>
-            <span className={styles.phoneIcon}>📞</span>
-            042-000-0000
-          </a>
           <Link href="/contact" className={styles.ctaBtn}>
             문의하기
           </Link>
@@ -135,12 +131,9 @@ export default function Header() {
         </Link>
 
         <div className={styles.mobileMenuContact}>
-          <a href="tel:042-000-0000" className={styles.mobileContactLink}>
-            <span>📞</span> 042-000-0000
-          </a>
-          <a href="mailto:info@gspls.kr" className={styles.mobileContactLink}>
-            <span>📧</span> info@gspls.kr
-          </a>
+          <p className={styles.mobileContactLink}>
+            <span>📧</span> polaris65b@gspls.kr
+          </p>
         </div>
       </div>
 

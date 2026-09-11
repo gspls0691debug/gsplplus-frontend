@@ -638,56 +638,6 @@
   color: #F57C00;
 }
 
-/* ===== 파트너 섹션 ===== */
-.partners {
-  padding: 60px 24px;
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.partnersInner {
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.partnersTitle {
-  font-size: 14px;
-  font-weight: 600;
-  color: #94a3b8;
-  margin-bottom: 32px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.partnersGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-}
-
-.partnerLogo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 140px;
-  height: 60px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #94a3b8;
-  transition: all 0.3s ease;
-}
-
-.partnerLogo:hover {
-  border-color: #F57C00;
-  color: #F57C00;
-}
-
 /* ===== 바로가기 카드 ===== */
 .quickLinks {
   padding: 100px 24px;

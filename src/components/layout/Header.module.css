@@ -73,25 +73,6 @@
   gap: 16px;
 }
 
-.phoneLink {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #475569;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.phoneLink:hover {
-  color: #F57C00;
-}
-
-.phoneIcon {
-  font-size: 16px;
-}
-
 .ctaBtn {
   display: inline-flex;
   align-items: center;

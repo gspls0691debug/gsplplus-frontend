@@ -12,10 +12,10 @@ export default function Footer() {
           <div className={styles.brand}>
             <Link href="/" className={styles.brandLogo}>
               <Image
-                src="/gsplplus_logo.png"
+                src="/gsplplus_logo_dark.png"
                 alt="GSPLPLUS"
-                width={140}
-                height={35}
+                width={160}
+                height={77}
                 className={styles.logoImage}
               />
             </Link>
@@ -80,41 +80,10 @@ export default function Footer() {
                 대전광역시 유성구 배울1로 277, 4동
               </p>
               <p className={styles.addressLine}>
-                <a href="tel:042-000-0000" className={styles.contactLink}>
-                  <span className={styles.icon}>📞</span>
-                  042-000-0000
-                </a>
-              </p>
-              <p className={styles.addressLine}>
-                <a href="mailto:info@gspls.kr" className={styles.contactLink}>
-                  <span className={styles.icon}>📧</span>
-                  info@gspls.kr
-                </a>
+                <span className={styles.icon}>📧</span>
+                polaris65b@gspls.kr
               </p>
             </address>
-            <div className={styles.hours}>
-              <p>
-                <strong>상담시간</strong>
-              </p>
-              <p>평일 09:00 ~ 18:00</p>
-              <p>점심 12:00 ~ 13:00</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 저작권 */}
-      <div className={styles.footerBottom}>
-        <div className={styles.footerBottomInner}>
-          <p className={styles.copyright}>
-            © 2015-2026 GSPLPLUS. All rights reserved.
-          </p>
-          <div className={styles.legal}>
-            <span>사업자등록번호: 000-00-00000</span>
-            <span className={styles.divider}>|</span>
-            <Link href="/privacy">개인정보처리방침</Link>
-            <span className={styles.divider}>|</span>
-            <Link href="/terms">이용약관</Link>
           </div>
         </div>
       </div>

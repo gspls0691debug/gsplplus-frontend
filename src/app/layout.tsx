@@ -56,9 +56,6 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  alternates: {
-    canonical: "https://gspls.kr/",
-  },
   openGraph: {
     title: siteTitle,
     description: siteDescription,
@@ -118,8 +115,7 @@ const jsonLd = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+82-42-000-0000",
-    email: "info@gspls.kr",
+    email: "polaris65b@gspls.kr",
     contactType: "customer service",
     availableLanguage: ["Korean"],
   },

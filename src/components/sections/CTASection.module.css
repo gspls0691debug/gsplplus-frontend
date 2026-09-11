@@ -98,41 +98,6 @@
   transform: translateX(4px);
 }
 
-.secondaryBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 16px 24px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #ffffff;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.secondaryBtn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-.default .secondaryBtn {
-  background: rgba(245, 124, 0, 0.1);
-  border-color: rgba(245, 124, 0, 0.3);
-  color: #F57C00;
-}
-
-.default .secondaryBtn:hover {
-  background: rgba(245, 124, 0, 0.15);
-}
-
-.phoneIcon {
-  font-size: 18px;
-}
-
 /* 배경 장식 */
 .bgDecor {
   position: absolute;
@@ -172,8 +137,7 @@
     width: 100%;
   }
 
-  .primaryBtn,
-  .secondaryBtn {
+  .primaryBtn {
     width: 100%;
     justify-content: center;
   }

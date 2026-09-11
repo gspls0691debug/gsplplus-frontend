@@ -7,7 +7,6 @@ interface CTASectionProps {
   subtitle?: string;
   primaryText?: string;
   primaryHref?: string;
-  secondaryText?: string;
   variant?: "default" | "dark" | "gradient";
 }
 
@@ -16,7 +15,6 @@ export default function CTASection({
   subtitle = "임베디드 전문가와 함께 여러분의 아이디어를 현실로 만들어 보세요.",
   primaryText = "문의하기",
   primaryHref = "/contact",
-  secondaryText = "042-000-0000",
   variant = "gradient",
 }: CTASectionProps) {
   return (
@@ -31,10 +29,6 @@ export default function CTASection({
             {primaryText}
             <span className={styles.btnArrow}>→</span>
           </Link>
-          <a href={`tel:${secondaryText.replace(/-/g, "")}`} className={styles.secondaryBtn}>
-            <span className={styles.phoneIcon}>📞</span>
-            전화상담 {secondaryText}
-          </a>
         </div>
       </div>
       {/* 배경 장식 */}

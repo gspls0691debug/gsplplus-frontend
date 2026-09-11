@@ -1,12 +1,11 @@
-// 2026-05-22 신규 생성: Contact 페이지 (서버 컴포넌트) - 문의 폼, 연락처, 지도 포함
+// 2026-05-22 신규 생성: Contact 페이지 (서버 컴포넌트) - 연락처, 지도 포함
 import type { Metadata } from "next";
-import ContactForm from "@/components/forms/ContactForm";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "문의하기",
   description:
-    "가스펠플러스(GSPLPLUS)에 프로젝트 문의를 남겨주세요. 임베디드 하드웨어, 소프트웨어, 시스템 통합 관련 무료 상담을 제공합니다. 1영업일 내 답변드립니다.",
+    "가스펠플러스(GSPLPLUS)에 이메일로 프로젝트 문의를 보내주세요. 임베디드 하드웨어, 소프트웨어, 시스템 통합 관련 무료 상담을 제공합니다. 1영업일 내 답변드립니다.",
 };
 
 export default function ContactPage() {
@@ -19,65 +18,33 @@ export default function ContactPage() {
             <p className={styles.eyebrow}>Contact Us</p>
             <h1 className={styles.heroTitle}>프로젝트 상담</h1>
             <p className={styles.heroLead}>
-              임베디드 개발 관련 문의사항을 남겨주시면
+              임베디드 개발 관련 문의사항을 이메일로 보내주시면
               <br />
-              <strong>1영업일 내</strong> 담당자가 연락드립니다.
+              담당자가 연락드립니다.
             </p>
           </div>
         </section>
 
-        {/* 컨텐츠 영역 */}
+        {/* 연락처 정보 */}
         <div className={styles.content}>
-          {/* 문의 폼 */}
-          <ContactForm />
+          {/* 이메일 카드 */}
+          <div className={styles.infoCard}>
+            <div className={styles.infoIcon}>📧</div>
+            <h3>이메일 문의</h3>
+            <p className={styles.infoLink}>polaris65b@gspls.kr</p>
+            <p className={styles.infoDesc}>24시간 접수 가능</p>
+          </div>
 
-          {/* 사이드바 - 연락처 정보 */}
-          <aside className={styles.sidebar}>
-            {/* 연락처 카드 */}
-            <div className={styles.infoCard}>
-              <div className={styles.infoIcon}>📞</div>
-              <h3>전화 문의</h3>
-              <a href="tel:042-000-0000" className={styles.infoLink}>
-                042-000-0000
-              </a>
-              <p className={styles.infoDesc}>평일 09:00 ~ 18:00</p>
-            </div>
-
-            {/* 이메일 카드 */}
-            <div className={styles.infoCard}>
-              <div className={styles.infoIcon}>📧</div>
-              <h3>이메일 문의</h3>
-              <a href="mailto:info@gspls.kr" className={styles.infoLink}>
-                info@gspls.kr
-              </a>
-              <p className={styles.infoDesc}>24시간 접수 가능</p>
-            </div>
-
-            {/* 주소 카드 */}
-            <div className={styles.infoCard}>
-              <div className={styles.infoIcon}>📍</div>
-              <h3>오시는 길</h3>
-              <p className={styles.infoAddress}>
-                대전광역시 유성구
-                <br />
-                배울1로 277, 4동
-              </p>
-            </div>
-
-            {/* 응답 시간 안내 */}
-            <div className={styles.responseCard}>
-              <div className={styles.responseIcon}>⚡</div>
-              <h3>빠른 응답 약속</h3>
-              <p>
-                문의 후 <strong>1영업일 내</strong> 답변
-              </p>
-              <ul className={styles.responseList}>
-                <li>✓ 무료 기술 상담</li>
-                <li>✓ 맞춤 견적 제공</li>
-                <li>✓ NDA 체결 가능</li>
-              </ul>
-            </div>
-          </aside>
+          {/* 주소 카드 */}
+          <div className={styles.infoCard}>
+            <div className={styles.infoIcon}>📍</div>
+            <h3>오시는 길</h3>
+            <p className={styles.infoAddress}>
+              대전광역시 유성구
+              <br />
+              배울1로 277, 4동
+            </p>
+          </div>
         </div>
 
         {/* 지도 섹션 */}
