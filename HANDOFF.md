@@ -8,9 +8,9 @@ GSPLPLUS 회사 소개 사이트 정리 작업. 다른 세션에서 이어서 �
 
 ---
 
-## 1. 완료 (`test` 브랜치에 커밋·푸시됨, 아직 `main` 미반영)
+## 1. 완료 (`main`에 병합·푸시됨 → Vercel 자동 배포)
 
-`npm run build` 통과 확인함. 운영 사이트(gspls.kr)에 반영하려면 `test` → `main` 머지 필요.
+`npm run build` 통과 확인함. 2026-09-11 `test` → `main` fast-forward 병합(`3e4743b`). 이후 작업도 같은 방식: `test`에서 작업·푸시 → `main`에 ff 병합.
 
 ### 연락처
 - 가짜 전화번호 `042-000-0000` 전부 제거, 이메일을 `polaris65b@gspls.kr`로 변경
