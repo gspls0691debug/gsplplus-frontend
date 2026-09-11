@@ -18,13 +18,13 @@ const infoCards = [
   {
     eyebrow: "Visit",
     title: "방문 안내",
-    description: "방문 전 일정이 있다면 미리 연락해주시면 안내가 수월합니다.",
+    description: "방문 전에 미리 연락 주시면 일정과 위치를 안내해 드립니다.",
     color: "#F57C00",
   },
   {
     eyebrow: "Contact",
     title: "연락처",
-    description: "전화 또는 이메일로 사전 문의해 주세요.",
+    description: "이메일로 사전 문의해 주세요. polaris65b@gspls.kr",
     color: "#10b981",
   },
 ];

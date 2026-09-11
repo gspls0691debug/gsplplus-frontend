@@ -107,6 +107,7 @@
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   animation: fadeInUp 0.6s ease-out backwards;
   animation-delay: var(--delay, 0s);
+  scroll-margin-top: 100px; /* 고정 헤더에 가려지지 않게 */
 }
 
 .coreCard:hover {
@@ -228,36 +229,69 @@
   color: #F57C00;
 }
 
-/* ===== 통계 섹션 ===== */
-.statsSection {
+.catalogText {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #475569;
+}
+
+.catalogText + .catalogText {
+  margin-top: 12px;
+}
+
+/* ===== 진행 방식 섹션 ===== */
+.processSection {
   padding: 80px 24px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: #ffffff;
 }
 
-.statsInner {
+.processList {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0;
+  list-style: none;
 }
 
-.statItem {
-  text-align: center;
+.processStep {
+  padding: 28px 24px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
 }
 
-.statValue {
+.processIndex {
   display: block;
-  font-size: 48px;
+  font-size: 13px;
   font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+  color: #F57C00;
+  margin-bottom: 12px;
 }
 
-.statLabel {
+.processTitle {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.processDesc {
   font-size: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.processOutput {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #64748b;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
 }
 
 /* ===== 애니메이션 ===== */
@@ -278,10 +312,6 @@
   .catalogGrid {
     grid-template-columns: 1fr;
   }
-
-  .statsInner {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 768px) {
@@ -290,7 +320,8 @@
   }
 
   .coreSection,
-  .catalogSection {
+  .catalogSection,
+  .processSection {
     padding: 60px 20px;
   }
 
@@ -305,18 +336,5 @@
 
   .catalogCard h3 {
     font-size: 22px;
-  }
-
-  .statsSection {
-    padding: 60px 20px;
-  }
-
-  .statsInner {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .statValue {
-    font-size: 36px;
   }
 }

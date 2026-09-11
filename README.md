@@ -22,11 +22,12 @@ npm run build   # 배포 전 확인 (타입 검사 포함)
 | `/` | 홈 (배경 영상, 서비스, 대표 프로젝트, 바로가기) |
 | `/about` | 회사 소개, 핵심 가치, 연혁 |
 | `/work` | 사업 영역, 보유 제품 |
-| `/portfolio` | 프로젝트 목록 (카테고리 필터) |
-| `/contact` | 이메일 안내 + 지도 |
-| `/location` | 오시는 길 |
+| `/portfolio` | 수행 프로젝트 목록 (연혁 기반) |
+| `/contact` | 이메일·주소 안내 |
+| `/location` | 오시는 길 (지도) |
 
-공용 컴포넌트: `src/components/layout/` (Header, Footer), `src/components/sections/CTASection.tsx`
+공용 컴포넌트: `src/components/layout/` (Header, Footer), `src/components/sections/CTASection.tsx`, `src/components/ui/Icon.tsx` (선형 아이콘)
+공유 미리보기 이미지: `src/app/opengraph-image.tsx` (빌드 시 생성) / 404: `src/app/not-found.tsx`
 
 ## SEO
 

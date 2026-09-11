@@ -3,14 +3,14 @@ import CTASection from "@/components/sections/CTASection";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "서비스",
+  title: "PCB 설계·전장 설계 서비스",
   description:
-    "가스펠플러스(GSPLPLUS)의 주요 서비스를 소개합니다. 임베디드 하드웨어, 소프트웨어, 시스템 통합, 자동차 전장 개발까지 원스톱 서비스를 제공합니다.",
+    "대전 유성구 가스펠플러스(GSPLPLUS)의 PCB 설계·아트웍, 전장 설계·제작·설치, 임베디드 소프트웨어, 시스템 통합 서비스. 시제품부터 양산과 검사 지그까지 대응합니다.",
 };
 
 const coreBusiness = [
   {
-    key: "platform",
+    key: "hardware",
     badge: "플랫폼",
     title: "임베디드 플랫폼 / BT 5.0",
     summary:
@@ -38,7 +38,7 @@ const coreBusiness = [
     color: "#8b5cf6",
   },
   {
-    key: "si",
+    key: "integration",
     badge: "통합",
     title: "시스템 통합(SI)",
     summary:
@@ -83,6 +83,35 @@ const products = [
   "산업용 단품 검사 시스템",
 ];
 
+// 진행 방식 (연혁에 기록된 설계·양산·검사 지그·전장 설치·정비 이력 기준)
+const processSteps = [
+  {
+    title: "상담·요구사항 정리",
+    description: "목적, 필요한 기능, 일정과 수량을 함께 정리하고 개발 범위를 정합니다.",
+    output: "개발 범위·일정 협의",
+  },
+  {
+    title: "회로설계·PCB 아트웍",
+    description: "MCU와 부품을 선정하고 회로도와 PCB 아트웍을 진행합니다.",
+    output: "회로도, PCB 데이터, 부품 목록(BOM)",
+  },
+  {
+    title: "시제품 제작·펌웨어 개발",
+    description: "시제품 보드를 제작하고 펌웨어를 개발해 기능과 성능을 확인합니다.",
+    output: "시제품 보드, 펌웨어",
+  },
+  {
+    title: "양산·검사 지그",
+    description: "양산에 대응하고, 필요 시 PCB·조립 단품 검사 지그를 함께 제작합니다.",
+    output: "양산 보드, 검사 지그",
+  },
+  {
+    title: "전장 제작·설치·정비",
+    description: "시뮬레이터와 장비의 전장을 제작해 현장에 설치하고, 이후 정비까지 대응합니다.",
+    output: "전장 설치, 정비 지원",
+  },
+];
+
 export default function WorkPage() {
   return (
     <div className={styles.page}>
@@ -91,12 +120,54 @@ export default function WorkPage() {
         <section className={styles.hero}>
           <div className={styles.heroContent}>
             <p className={styles.eyebrow}>Services</p>
-            <h1 className={styles.heroTitle}>주요 사업 영역</h1>
+            <h1 className={styles.heroTitle}>PCB 설계·전장 설계 제작</h1>
             <p className={styles.heroLead}>
-              GSPLPLUS는 임베디드 시스템을 기반으로 하드웨어, 소프트웨어,
+              대전 유성구의 GSPLPLUS는 임베디드 시스템을 기반으로 하드웨어, 소프트웨어,
               <br />
               시스템을 개발하고 생산 및 납품까지 이어지는 원스톱 서비스를 제공합니다.
             </p>
+          </div>
+        </section>
+
+        {/* 대표 서비스 소개 (PCB / 전장) */}
+        <section className={styles.catalogSection} aria-labelledby="main-service-title">
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Main Services</p>
+            <h2 id="main-service-title">대전 PCB 설계·전장 설계 제작</h2>
+            <p className={styles.sectionLead}>
+              대전 유성구에서 회로설계부터 PCB 아트웍, 전장 제작과 현장 설치까지
+              직접 수행합니다.
+            </p>
+          </div>
+
+          <div className={styles.catalogGrid}>
+            <article className={styles.catalogCard}>
+              <p className={styles.cardEyebrow}>PCB Design</p>
+              <h3>PCB 설계·아트웍</h3>
+              <p className={styles.catalogText}>
+                NXP, TI, STM, AVR 등 MCU·프로세서 기반의 회로설계와 PCB 아트웍을
+                수행합니다. 드론용 파워·통신·센싱 보드, AI 32채널 측정·디스플레이
+                보드, 온도·압력·진동·가스 등 각종 센서 보드를 개발해 왔습니다.
+              </p>
+              <p className={styles.catalogText}>
+                시제품 제작에서 끝나지 않고 보드 양산과 PCB·조립 단품 검사 지그
+                제작까지 이어서 대응합니다.
+              </p>
+            </article>
+
+            <article className={styles.catalogCard}>
+              <p className={styles.cardEyebrow}>Electrical Design</p>
+              <h3>전장 설계·제작·설치</h3>
+              <p className={styles.catalogText}>
+                시뮬레이터와 훈련장비, 산업용 장비의 전장을 설계하고 제작부터 현장
+                설치까지 수행합니다. 낙하산 시뮬레이터 전장 제작·설치, 잠수함
+                시뮬레이터 패널류, 경찰 VR 시뮬레이터 하드웨어 등을 진행했습니다.
+              </p>
+              <p className={styles.catalogText}>
+                커피 로스터 기계 전장, 무선충전 거치대 양산 등 제품 전장 개발도
+                함께 수행합니다.
+              </p>
+            </article>
           </div>
         </section>
 
@@ -115,6 +186,7 @@ export default function WorkPage() {
             {coreBusiness.map((area, index) => (
               <article
                 key={area.key}
+                id={area.key}
                 className={styles.coreCard}
                 style={
                   {
@@ -136,6 +208,30 @@ export default function WorkPage() {
               </article>
             ))}
           </div>
+        </section>
+
+        {/* 진행 방식 */}
+        <section className={styles.processSection} aria-labelledby="process-title">
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Process</p>
+            <h2 id="process-title">진행 방식</h2>
+            <p className={styles.sectionLead}>
+              설계부터 양산·설치까지 끊김 없이 이어서 진행합니다.
+            </p>
+          </div>
+
+          <ol className={styles.processList}>
+            {processSteps.map((step, index) => (
+              <li key={step.title} className={styles.processStep}>
+                <span className={styles.processIndex}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className={styles.processTitle}>{step.title}</h3>
+                <p className={styles.processDesc}>{step.description}</p>
+                <p className={styles.processOutput}>산출물 · {step.output}</p>
+              </li>
+            ))}
+          </ol>
         </section>
 
         {/* 사업 분야 / 보유 제품 */}
@@ -165,28 +261,6 @@ export default function WorkPage() {
                 ))}
               </ul>
             </article>
-          </div>
-        </section>
-
-        {/* 통계 섹션 */}
-        <section className={styles.statsSection}>
-          <div className={styles.statsInner}>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>4</span>
-              <span className={styles.statLabel}>핵심 사업 영역</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>10+</span>
-              <span className={styles.statLabel}>년 개발 경력</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>100+</span>
-              <span className={styles.statLabel}>완료 프로젝트</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>99%</span>
-              <span className={styles.statLabel}>고객 만족도</span>
-            </div>
           </div>
         </section>
 

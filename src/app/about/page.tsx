@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "회사 소개",
   description:
-    "가스펠플러스(GSPLPLUS)는 2015년 창립 이래 10년 이상의 임베디드 전문 기업입니다. 기획과 협력, 개발과 구현, 성장 동반의 가치로 고객과 함께 성장합니다.",
+    "대전 유성구의 가스펠플러스(GSPLPLUS)는 2015년 창립 이래 PCB 설계, 전장 설계·제작, 임베디드 개발을 수행해 온 전문 기업입니다. 기획과 협력, 개발과 구현, 성장 동반의 가치로 고객과 함께 성장합니다.",
 };
 
 const principles = ["사람을 이롭게", "자연을 아름답게", "사회를 따뜻하게"];
@@ -118,8 +118,8 @@ export default function AboutPage() {
             <p className={styles.eyebrow}>About Us</p>
             <h1 className={styles.heroTitle}>회사 소개</h1>
             <p className={styles.heroLead}>
-              가스펠플러스(GSPLPLUS)는 임베디드 하드웨어와 소프트웨어를 함께
-              다루는 엔지니어링 기업입니다.
+              가스펠플러스(GSPLPLUS)는 대전 유성구에서 임베디드 하드웨어와
+              소프트웨어를 함께 다루는 엔지니어링 기업입니다.
               <br />
               2015년 창업 이후 축적한 경험과 기술을 바탕으로 다양한 산업의
               요구사항과 기술 문제를 해결합니다.
@@ -164,7 +164,7 @@ export default function AboutPage() {
         </section>
 
         {/* 연혁 섹션 */}
-        <section className={styles.historySection} aria-labelledby="history-title">
+        <section id="history" className={styles.historySection} aria-labelledby="history-title">
           <div className={styles.sectionHeader}>
             <p className={styles.sectionEyebrow}>History</p>
             <h2 id="history-title">기업 연혁</h2>
@@ -198,28 +198,6 @@ export default function AboutPage() {
                 </div>
               </article>
             ))}
-          </div>
-        </section>
-
-        {/* 통계 섹션 */}
-        <section className={styles.statsSection}>
-          <div className={styles.statsInner}>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>2015</span>
-              <span className={styles.statLabel}>창립년도</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>10+</span>
-              <span className={styles.statLabel}>년 경력</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>100+</span>
-              <span className={styles.statLabel}>완료 프로젝트</span>
-            </div>
-            <div className={styles.statItem}>
-              <span className={styles.statValue}>3</span>
-              <span className={styles.statLabel}>핵심 가치</span>
-            </div>
           </div>
         </section>
 

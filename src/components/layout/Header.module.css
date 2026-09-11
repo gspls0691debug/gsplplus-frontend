@@ -236,8 +236,8 @@
   text-decoration: none;
 }
 
-.mobileContactLink span {
-  font-size: 18px;
+.mobileContactLink svg {
+  flex-shrink: 0;
 }
 
 /* 오버레이 */

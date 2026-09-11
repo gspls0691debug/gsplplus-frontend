@@ -1,6 +1,7 @@
 // 2026-05-22 신규 생성: Footer 컴포넌트 - 연락처, 빠른링크, 저작권 정보 포함
 import Link from "next/link";
 import Image from "next/image";
+import Icon from "@/components/ui/Icon";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -20,13 +21,13 @@ export default function Footer() {
               />
             </Link>
             <p className={styles.brandDesc}>
-              임베디드 하드웨어·소프트웨어 전문
+              대전 PCB 설계·전장 설계
               <br />
-              엔지니어링 기업
+              임베디드 엔지니어링 기업
             </p>
             <div className={styles.brandStats}>
-              <span>10년+ 경력</span>
-              <span>100+ 프로젝트</span>
+              <span>대전 유성구</span>
+              <span>2015년 설립</span>
             </div>
           </div>
 
@@ -76,11 +77,11 @@ export default function Footer() {
             <h3 className={styles.linksTitle}>연락처</h3>
             <address className={styles.address}>
               <p className={styles.addressLine}>
-                <span className={styles.icon}>📍</span>
+                <Icon name="pin" size={16} className={styles.icon} />
                 대전광역시 유성구 배울1로 277, 4동
               </p>
               <p className={styles.addressLine}>
-                <span className={styles.icon}>📧</span>
+                <Icon name="mail" size={16} className={styles.icon} />
                 polaris65b@gspls.kr
               </p>
             </address>

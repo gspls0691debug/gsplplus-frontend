@@ -5,22 +5,29 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Icon, { type IconName } from "@/components/ui/Icon";
 import CTASection from "@/components/sections/CTASection";
 import styles from "./page.module.css";
 
 // 통계 데이터
 const stats = [
-  { value: "10", suffix: "+", label: "년 경력", desc: "2015년 창립" },
-  { value: "100", suffix: "+", label: "프로젝트", desc: "성공적 납품" },
-  { value: "50", suffix: "+", label: "고객사", desc: "신뢰하는 파트너" },
-  { value: "99", suffix: "%", label: "재계약률", desc: "고객 만족" },
+  { value: "2015", suffix: "", label: "설립 연도", desc: "대전 유성구" },
+  { value: "10", suffix: "+", label: "년 개발 경력", desc: "임베디드 하드웨어·소프트웨어" },
+  { value: "20", suffix: "+", label: "수행 프로젝트", desc: "위성·방산 시뮬레이터·의료·산업 장비" },
 ];
 
 // 핵심 서비스
-const services = [
+const services: {
+  id: string;
+  icon: IconName;
+  title: string;
+  subtitle: string;
+  desc: string;
+  features: string[];
+}[] = [
   {
     id: "hardware",
-    icon: "🔧",
+    icon: "chip",
     title: "하드웨어 설계",
     subtitle: "Hardware Design",
     desc: "NXP, TI, STM, AVR 기반 설계 및 최적화, 정밀 센서 모듈 개발",
@@ -28,7 +35,7 @@ const services = [
   },
   {
     id: "software",
-    icon: "💻",
+    icon: "code",
     title: "임베디드 소프트웨어",
     subtitle: "Embedded Software",
     desc: "펌웨어, OS 포팅, PC·모바일 앱 연동 제어 시스템 개발",
@@ -36,7 +43,7 @@ const services = [
   },
   {
     id: "integration",
-    icon: "🔗",
+    icon: "nodes",
     title: "시스템 통합",
     subtitle: "System Integration",
     desc: "장비와 소프트웨어를 통합한 현장 적용 솔루션 구현",
@@ -44,7 +51,7 @@ const services = [
   },
   {
     id: "automotive",
-    icon: "🚗",
+    icon: "car",
     title: "자동차 전장",
     subtitle: "Automotive",
     desc: "자동차 센서 및 자율주행 관련 모듈 설계·개발",
@@ -52,31 +59,43 @@ const services = [
   },
 ];
 
-// 대표 프로젝트
+// 대표 프로젝트 (회사 소개 연혁에 공개된 항목 중 선정)
 const projects = [
   {
-    year: "2025",
-    title: "안마기 신제품 PCB 및 검사 지그",
-    category: "점검장비",
-    color: "#3b82f6",
+    year: "2016",
+    title: "다목적실용위성 6호 Baseband TIU 보드",
+    category: "항공우주",
+    color: "#8b5cf6",
+  },
+  {
+    year: "2018",
+    title: "잠수함 시뮬레이터 패널류 7종 개발",
+    category: "방산 시뮬레이터",
+    color: "#64748b",
+  },
+  {
+    year: "2019",
+    title: "LYNX 해군 패널류 성능 개선",
+    category: "방산",
+    color: "#0ea5e9",
+  },
+  {
+    year: "2021",
+    title: "마그네틱 활용 복강경 마킹 장비",
+    category: "의료기기",
+    color: "#ec4899",
+  },
+  {
+    year: "2023",
+    title: "경찰 VR 시뮬레이터 하드웨어",
+    category: "시뮬레이터",
+    color: "#06b6d4",
   },
   {
     year: "2024",
     title: "드론용 파워/통신/센싱 보드",
     category: "하드웨어",
     color: "#10b981",
-  },
-  {
-    year: "2023",
-    title: "낙하산 시뮬레이터 전장 설치",
-    category: "시뮬레이터",
-    color: "#8b5cf6",
-  },
-  {
-    year: "2022",
-    title: "오토바이 무선충전 거치대 양산",
-    category: "IoT",
-    color: "#f59e0b",
   },
 ];
 
@@ -133,18 +152,18 @@ export default function Home() {
           <div className={styles.heroContent}>
             <div className={styles.heroCopy}>
               <span className={styles.heroBadge}>
-                🏆 10년 이상의 임베디드 전문 기업
+                대전 유성구 · 2015년 설립 임베디드 전문 기업
               </span>
               <h1 className={styles.heroTitle}>
-                설계부터 생산까지
+                PCB 설계부터 전장 제작까지
                 <br />
                 <span className={styles.heroTitleAccent}>원스톱 엔지니어링</span>
               </h1>
               <p className={styles.heroDesc}>
-                가스펠플러스(GSPLPLUS)는 임베디드 하드웨어와 소프트웨어를 함께
-                다루는 엔지니어링 기업입니다. 다양한 산업의 요구사항을 바탕으로
-                시스템을 설계하고 구현하며, 실제 현장에 적용 가능한 결과물까지
-                연결합니다.
+                대전 유성구의 가스펠플러스(GSPLPLUS)는 회로설계·PCB 아트웍,
+                전장 설계·제작, 펌웨어 개발까지 함께 수행하는 임베디드
+                엔지니어링 기업입니다. 시제품부터 양산, 현장 설치까지 실제
+                적용 가능한 결과물로 연결합니다.
               </p>
               <div className={styles.heroActions}>
                 <Link href="/contact" className={styles.heroPrimaryBtn}>
@@ -156,9 +175,9 @@ export default function Home() {
                 </Link>
               </div>
               <div className={styles.heroTags}>
-                <span>하드웨어</span>
-                <span>소프트웨어</span>
-                <span>시스템 통합</span>
+                <span>PCB 설계</span>
+                <span>전장 제작</span>
+                <span>펌웨어</span>
                 <span>생산·양산</span>
               </div>
             </div>
@@ -233,7 +252,9 @@ export default function Home() {
             <div className={styles.servicesGrid}>
               {services.map((service) => (
                 <article key={service.id} className={styles.serviceCard}>
-                  <div className={styles.serviceIcon}>{service.icon}</div>
+                  <div className={styles.serviceIcon}>
+                    <Icon name={service.icon} size={26} />
+                  </div>
                   <div className={styles.serviceContent}>
                     <span className={styles.serviceSubtitle}>
                       {service.subtitle}
@@ -271,12 +292,12 @@ export default function Home() {
         <section className={`${styles.projects} ${styles.animateOnScroll}`} aria-labelledby="projects-title">
           <div className={styles.projectsInner}>
             <div className={styles.sectionHeader}>
-              <span className={styles.sectionBadge}>Recent Projects</span>
+              <span className={styles.sectionBadge}>Selected Projects</span>
               <h2 id="projects-title" className={styles.sectionTitle}>
                 대표 프로젝트
               </h2>
               <p className={styles.sectionDesc}>
-                다양한 산업 분야에서 축적한 개발 경험과 노하우
+                위성·방산 시뮬레이터부터 의료기기·드론까지, 연혁에 기록된 실제 수행 프로젝트입니다.
               </p>
             </div>
 
@@ -310,7 +331,9 @@ export default function Home() {
         <section className={`${styles.quickLinks} ${styles.animateOnScroll}`} aria-label="바로가기">
           <div className={styles.quickLinksInner}>
             <Link className={styles.quickCard} href="/about">
-              <div className={styles.quickCardIcon}>🏢</div>
+              <div className={styles.quickCardIcon}>
+                <Icon name="building" size={26} />
+              </div>
               <div className={styles.quickCardContent}>
                 <span className={styles.quickCardLabel}>About Us</span>
                 <h3>회사 소개</h3>
@@ -322,7 +345,9 @@ export default function Home() {
             </Link>
 
             <Link className={styles.quickCard} href="/work">
-              <div className={styles.quickCardIcon}>⚙️</div>
+              <div className={styles.quickCardIcon}>
+                <Icon name="layers" size={26} />
+              </div>
               <div className={styles.quickCardContent}>
                 <span className={styles.quickCardLabel}>Services</span>
                 <h3>서비스</h3>
@@ -334,7 +359,9 @@ export default function Home() {
             </Link>
 
             <Link className={styles.quickCard} href="/contact">
-              <div className={styles.quickCardIcon}>📞</div>
+              <div className={styles.quickCardIcon}>
+                <Icon name="mail" size={26} />
+              </div>
               <div className={styles.quickCardContent}>
                 <span className={styles.quickCardLabel}>Contact</span>
                 <h3>문의하기</h3>

@@ -336,7 +336,7 @@
 
 .statsInner {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   max-width: 1000px;
   margin: 0 auto;
@@ -470,7 +470,7 @@
   height: 56px;
   background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
   border-radius: 16px;
-  font-size: 28px;
+  color: #E65100;
 }
 
 .serviceContent {
@@ -570,7 +570,7 @@
 
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -679,7 +679,7 @@
   height: 56px;
   background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
   border-radius: 16px;
-  font-size: 28px;
+  color: #E65100;
 }
 
 .quickCardContent {
@@ -736,10 +736,6 @@
     max-width: 100%;
   }
 
-  .statsInner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .servicesGrid {
     grid-template-columns: 1fr;
   }
@@ -774,7 +770,7 @@
   }
 
   .statsInner {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 

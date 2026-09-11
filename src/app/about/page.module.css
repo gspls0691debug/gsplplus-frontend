@@ -261,38 +261,6 @@
   color: #0f172a;
 }
 
-/* ===== 통계 섹션 ===== */
-.statsSection {
-  padding: 80px 24px;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-}
-
-.statsInner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.statItem {
-  text-align: center;
-}
-
-.statValue {
-  display: block;
-  font-size: 48px;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 8px;
-}
-
-.statLabel {
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-}
-
 /* ===== 애니메이션 ===== */
 @keyframes fadeInUp {
   from {
@@ -310,10 +278,6 @@
   .pillarsGrid {
     grid-template-columns: 1fr;
     max-width: 600px;
-  }
-
-  .statsInner {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -358,19 +322,6 @@
   .timelineList li {
     grid-template-columns: 88px minmax(0, 1fr);
     font-size: 14px;
-  }
-
-  .statsSection {
-    padding: 60px 20px;
-  }
-
-  .statsInner {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .statValue {
-    font-size: 36px;
   }
 }
 

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Icon from "@/components/ui/Icon";
 import styles from "./Header.module.css";
 
 const navItems = [
@@ -132,7 +133,8 @@ export default function Header() {
 
         <div className={styles.mobileMenuContact}>
           <p className={styles.mobileContactLink}>
-            <span>📧</span> polaris65b@gspls.kr
+            <Icon name="mail" size={18} />
+            polaris65b@gspls.kr
           </p>
         </div>
       </div>
