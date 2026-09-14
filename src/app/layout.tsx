@@ -143,7 +143,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* 파비콘은 src/app/favicon.ico, 공유 이미지는 src/app/opengraph-image.tsx가 자동 처리 */}
+        {/* 파비콘은 src/app/favicon.ico·icon.png·apple-icon.png(회사 로고), 공유 이미지는 src/app/opengraph-image.tsx가 자동 처리 */}
         {/* 테마 색상 */}
         <meta name="theme-color" content="#c97707" />
       </head>
