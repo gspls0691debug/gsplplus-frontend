@@ -20,9 +20,9 @@ export default function ContactPage() {
             <p className={styles.eyebrow}>Contact Us</p>
             <h1 className={styles.heroTitle}>프로젝트 상담</h1>
             <p className={styles.heroLead}>
-              임베디드 개발 관련 문의사항을 이메일로 보내주시면
+              프로젝트 내용을 이메일로 보내주시면
               <br />
-              담당자가 연락드립니다.
+              검토 후 회신드리겠습니다.
             </p>
           </div>
         </section>
