@@ -86,8 +86,8 @@ const history = [
     year: "2017",
     items: [
       { month: "12", text: "LYNX CFT 성능 개선 사업 참여" },
-      { month: "03", text: "미래테크원 Zigbee node 보드" },
-      { month: "03", text: "미래테크원 8W LED 등 개발" },
+      { month: "03", text: "Zigbee 노드 보드" },
+      { month: "03", text: "8W LED 조명 개발" },
       { month: "01", text: "신발 건조기 개발" },
     ],
   },
@@ -95,7 +95,7 @@ const history = [
     year: "2016",
     items: [
       { month: "12", text: "다목적실용위성 6호 Baseband TIU 보드" },
-      { month: "06", text: "보카보카 커피 로스터 기계 전장 개발" },
+      { month: "06", text: "커피 로스터 기계 전장 개발" },
       { month: "01", text: "GRA 시뮬레이터" },
     ],
   },
