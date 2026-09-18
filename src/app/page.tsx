@@ -7,13 +7,15 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/ui/Icon";
 import CTASection from "@/components/sections/CTASection";
+import { projects as allProjects } from "@/data/projects";
 import styles from "./page.module.css";
 
 // 통계 데이터
 const stats = [
   { value: "2015", suffix: "", label: "설립 연도", desc: "대전 유성구" },
   { value: "10", suffix: "+", label: "년 개발 경력", desc: "임베디드 하드웨어·소프트웨어" },
-  { value: "20", suffix: "+", label: "수행 프로젝트", desc: "위성·방산 시뮬레이터·의료·산업 장비" },
+  // 연혁 약 20건 + 회사 자료 2023~2026 중 수리·케이블·구매 대행 제외, 연속 건 묶어서 약 35~40건
+  { value: "50", suffix: "+", label: "수행 프로젝트", desc: "위성·방산 시뮬레이터·의료·산업 장비" },
 ];
 
 // 핵심 서비스
@@ -59,45 +61,10 @@ const services: {
   },
 ];
 
-// 대표 프로젝트 (회사 소개 연혁에 공개된 항목 중 선정)
-const projects = [
-  {
-    year: "2016",
-    title: "다목적실용위성 6호 Baseband TIU 보드",
-    category: "항공우주",
-    color: "#8b5cf6",
-  },
-  {
-    year: "2018",
-    title: "잠수함 시뮬레이터 패널류 7종 개발",
-    category: "방산 시뮬레이터",
-    color: "#64748b",
-  },
-  {
-    year: "2019",
-    title: "LYNX 해군 패널류 성능 개선",
-    category: "방산",
-    color: "#0ea5e9",
-  },
-  {
-    year: "2021",
-    title: "마그네틱 활용 복강경 마킹 장비",
-    category: "의료기기",
-    color: "#ec4899",
-  },
-  {
-    year: "2023",
-    title: "경찰 VR 시뮬레이터 하드웨어",
-    category: "시뮬레이터",
-    color: "#06b6d4",
-  },
-  {
-    year: "2024",
-    title: "드론용 파워/통신/센싱 보드",
-    category: "하드웨어",
-    color: "#10b981",
-  },
-];
+// 대표 프로젝트: src/data/projects.ts의 featured 항목 (포트폴리오와 공용, 연도 없이 분야로 표시)
+const projects = allProjects
+  .filter((project) => project.featured)
+  .sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0));
 
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -202,6 +169,10 @@ export default function Home() {
                     <span className={styles.dot} />
                     자동차 센서, IoT, 의료기기
                   </li>
+                  <li>
+                    <span className={styles.dot} />
+                    생체신호 계측, 원자력 설비 통신장치
+                  </li>
                 </ul>
                 <Link href="/contact" className={styles.heroCardCta}>
                   무료 상담 신청 →
@@ -297,18 +268,17 @@ export default function Home() {
                 대표 프로젝트
               </h2>
               <p className={styles.sectionDesc}>
-                위성·방산 시뮬레이터부터 의료기기·드론까지, 연혁에 기록된 실제 수행 프로젝트입니다.
+                위성·방산 시뮬레이터부터 의료기기·생체신호·원자력까지, 실제로 수행한 프로젝트입니다.
               </p>
             </div>
 
             <div className={styles.projectsGrid}>
-              {projects.map((project, index) => (
+              {projects.map((project) => (
                 <article
-                  key={index}
+                  key={project.title}
                   className={styles.projectCard}
                   style={{ "--accent-color": project.color } as React.CSSProperties}
                 >
-                  <div className={styles.projectYear}>{project.year}</div>
                   <div className={styles.projectContent}>
                     <span className={styles.projectCategory}>
                       {project.category}
@@ -320,8 +290,8 @@ export default function Home() {
             </div>
 
             <div className={styles.projectsAction}>
-              <Link href="/about#history" className={styles.projectsBtn}>
-                전체 연혁 보기 →
+              <Link href="/portfolio" className={styles.projectsBtn}>
+                전체 프로젝트 보기 →
               </Link>
             </div>
           </div>

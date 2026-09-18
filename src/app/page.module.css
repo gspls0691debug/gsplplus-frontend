@@ -588,13 +588,6 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-.projectYear {
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--accent-color);
-  margin-bottom: 12px;
-}
-
 .projectCategory {
   display: inline-block;
   padding: 4px 10px;
