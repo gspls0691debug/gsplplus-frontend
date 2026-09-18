@@ -73,14 +73,30 @@ const businessFields = [
   "PCB 및 조립 단품 검사 장비 설계 제작",
   "훈련장비 전장 설계 제작 및 설치",
   "UH60FFS / LYNX FMS 정비",
+  "생체신호(EEG·ERG·PPG·EMG) 계측 모듈 개발",
+  "드론 전원 분배·변환 보드(PDB·BEC) 설계 및 양산",
+  "원자력 설비 전장·무선 통신장치 개발",
 ];
 
 const products = [
   "DI, AI, 디스플레이 입출력 보드",
   "아날로그 제어 계기패널 제어보드",
   "온도 / 압력 / 진동 / IR / 수질 / 가스 / 홀 센서보드",
-  "산업용 PCB 검사 시스템",
+  "산업용 PCB 검사 시스템 (Mini PC·Windows 11 기반 검사 프로그램 자체 개발)",
   "산업용 단품 검사 시스템",
+];
+
+// 설계 도구·계측 장비 (회사 자료 기준: 설계 파일 형식, 구매 문서, 2026-03 교정성적서)
+const designTools = [
+  "회로·PCB 설계: EasyEDA Pro, PADS",
+  "회로 시뮬레이션: Proteus",
+  "기구·지그 설계: AutoCAD(2D), Inventor·IronCAD(3D)",
+];
+
+const equipment = [
+  "YOKOGAWA DL9040 디지털 오실로스코프",
+  "HIOKI 3803 디지털 멀티미터",
+  "FLUKE 101 디지털 멀티미터",
 ];
 
 // 진행 방식 (연혁에 기록된 설계·양산·검사 지그·전장 설치·정비 이력 기준)
@@ -232,6 +248,37 @@ export default function WorkPage() {
               </li>
             ))}
           </ol>
+        </section>
+
+        {/* 설계 도구 / 계측 장비 */}
+        <section className={styles.catalogSection} aria-labelledby="tools-title">
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Tools &amp; Equipment</p>
+            <h2 id="tools-title">설계 도구 및 계측 장비</h2>
+          </div>
+
+          <div className={styles.catalogGrid}>
+            <article className={styles.catalogCard}>
+              <p className={styles.cardEyebrow}>Design Tools</p>
+              <h3>설계 도구</h3>
+              <ul className={styles.catalogList}>
+                {designTools.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+
+            <article className={styles.catalogCard}>
+              <p className={styles.cardEyebrow}>Equipment</p>
+              <h3>계측 장비</h3>
+              <ul className={styles.catalogList}>
+                {equipment.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p className={styles.catalogText}>2026년 3월 공인 교정을 마쳤습니다.</p>
+            </article>
+          </div>
         </section>
 
         {/* 사업 분야 / 보유 제품 */}
