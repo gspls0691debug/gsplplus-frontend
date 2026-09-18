@@ -52,9 +52,34 @@
   color: #64748b;
 }
 
-/* ===== 프로젝트 섹션 ===== */
+/* ===== 섹션 헤더 ===== */
+.sectionHeader {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.sectionEyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F57C00;
+  margin-bottom: 12px;
+}
+
+.sectionHeader h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+
+/* ===== 대표 프로젝트 섹션 ===== */
 .projectsSection {
-  padding: 60px 24px 100px;
+  padding: 80px 24px;
   background: #f8fafc;
 }
 
@@ -92,12 +117,6 @@
   margin-bottom: 16px;
 }
 
-.projectYear {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--accent-color, #F57C00);
-}
-
 .projectClient {
   padding: 4px 12px;
   background: #f1f5f9;
@@ -127,7 +146,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 16px;
 }
 
 .projectTag {
@@ -140,17 +158,58 @@
   color: #64748b;
 }
 
-.projectFooter {
-  padding-top: 16px;
-  border-top: 1px solid #f1f5f9;
-}
-
 .projectCategory {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--accent-color, #F57C00);
+}
+
+/* ===== 연도별 프로젝트 섹션 ===== */
+.yearSection {
+  padding: 80px 24px 100px;
+  background: #ffffff;
+}
+
+.yearList {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.yearGroup {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  padding: 24px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.yearGroup:last-child {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.yearLabel {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #F57C00;
+}
+
+.yearItems {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.yearItem {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #334155;
 }
 
 /* ===== 애니메이션 ===== */
@@ -177,8 +236,14 @@
     padding: 100px 20px 40px;
   }
 
-  .projectsSection {
-    padding: 40px 20px 60px;
+  .projectsSection,
+  .yearSection {
+    padding: 60px 20px;
+  }
+
+  .yearGroup {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .projectsGrid {
