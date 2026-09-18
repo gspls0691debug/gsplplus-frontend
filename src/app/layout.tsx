@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     url: "https://gspls.kr/",
-    siteName: "가스펠플러스(GSPLPLUS)",
+    siteName: "가스펠플러스",
     locale: "ko_KR",
     type: "website",
   },
@@ -85,6 +85,15 @@ export const metadata: Metadata = {
     // Google Search Console 등록 시 추가
     // google: "verification_token",
   },
+};
+
+// 검색 결과의 사이트 이름 (구글은 홈페이지의 WebSite 구조화 데이터로 정함, 없으면 도메인 표시)
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "가스펠플러스",
+  alternateName: ["가스펠 플러스", "GSPLPLUS"],
+  url: "https://gspls.kr/",
 };
 
 // JSON-LD 구조화 데이터
@@ -142,6 +151,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         {/* 파비콘은 src/app/favicon.ico·icon.png·apple-icon.png(회사 로고), 공유 이미지는 src/app/opengraph-image.tsx가 자동 처리 */}
         {/* 테마 색상 */}
