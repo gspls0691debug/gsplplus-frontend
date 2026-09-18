@@ -37,4 +37,4 @@ npm run build   # 배포 전 확인 (타입 검사 포함)
 
 ## 진행 중인 작업
 
-남은 작업과 결정 대기 항목은 [HANDOFF.md](HANDOFF.md) 참고.
+남은 작업과 결정 대기 항목은 [HANDOFF.md](HANDOFF.md), 검색 노출 해결 방안은 [SEARCH_PLAN.md](SEARCH_PLAN.md) 참고.
