@@ -3,9 +3,9 @@ import CTASection from "@/components/sections/CTASection";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "PCB 설계·전장 설계 서비스",
+  title: "대전 PCB 설계·아트웍·전장 제작",
   description:
-    "대전 유성구 가스펠플러스(GSPLPLUS)의 PCB 설계·아트웍, 전장 설계·제작·설치, 임베디드 소프트웨어, 시스템 통합 서비스. 시제품부터 양산과 검사 지그까지 대응합니다.",
+    "대전 PCB 설계·회로설계 외주, 펌웨어 개발, 시제품 제작, PCB 검사 지그, 전장 제작 업체 가스펠플러스(GSPLPLUS). 대전 유성구에서 설계부터 양산·현장 설치까지 대응합니다.",
 };
 
 const coreBusiness = [
@@ -86,6 +86,41 @@ const products = [
   "산업용 단품 검사 시스템",
 ];
 
+// 의뢰 가능 업무: 고객이 실제로 검색하는 표현(외주·의뢰·업체·시제품·검사 지그, 2026-09-21 구글·네이버 자동완성 기준)으로 작성
+// 내용은 src/data/projects.ts의 공개 프로젝트만 근거 (hidden 건 제외)
+const outsourcing = [
+  {
+    eyebrow: "PCB Design",
+    title: "PCB 설계·회로설계 외주",
+    text: "회로설계와 PCB 아트웍을 외주로 맡기실 수 있습니다. 4층 기판, FPCB, COB(Chip on Board) 기판, 드론 전원 보드(PDB·BEC), 32·48채널 아날로그 입력 보드 등을 설계했습니다.",
+  },
+  {
+    eyebrow: "Prototype & Production",
+    title: "PCB 제작·시제품 제작 의뢰",
+    text: "설계한 보드의 샘플·시제품 제작부터 양산까지 이어서 진행합니다. PCB·FPCB 13종 샘플 제작, 드론 전원 보드 양산, 입출력(IO) 보드 양산 등을 수행했습니다.",
+  },
+  {
+    eyebrow: "Firmware",
+    title: "펌웨어·임베디드 개발 외주",
+    text: "STM32, nRF52(BLE), ESP32, AVR 기반 펌웨어 개발과 OS 포팅, Android 앱 연동까지 함께 개발합니다.",
+  },
+  {
+    eyebrow: "Test Jig",
+    title: "PCB 검사 지그·검사장비 제작",
+    text: "양산 라인에서 쓰는 PCB 기능 검사 지그, 포고핀 지그, 완제품 검사장비를 기구·전장·검사 프로그램(GUI)까지 함께 제작합니다. 안마의자, 의료기기, 치과 장비, 센서 제품용 검사 지그를 개발했습니다.",
+  },
+  {
+    eyebrow: "Control Board",
+    title: "제어보드 개발",
+    text: "스텝모터 제어보드, 40채널 DI·16채널 DO 입출력 제어보드, ESP32 제어보드 등 장비에 들어가는 제어보드를 회로설계부터 펌웨어까지 개발합니다.",
+  },
+  {
+    eyebrow: "R&D",
+    title: "연구 용역·연구 과제 시제품 개발",
+    text: "정부출연연구기관·공공 연구기관의 연구 용역과 연구 과제에 참여해 생체신호(EEG·ERG·PPG·EMG) 계측 보드, 무선 측정 모듈, 복강경 장비 등을 개발해 왔습니다.",
+  },
+];
+
 // 설계 도구·계측 장비 (회사 자료 기준: 설계 파일 형식, 구매 문서, 2026-03 교정성적서)
 const designTools = [
   "회로·PCB 설계: EasyEDA Pro, PADS",
@@ -136,7 +171,7 @@ export default function WorkPage() {
         <section className={styles.hero}>
           <div className={styles.heroContent}>
             <p className={styles.eyebrow}>Services</p>
-            <h1 className={styles.heroTitle}>PCB 설계·전장 설계 제작</h1>
+            <h1 className={styles.heroTitle}>대전 PCB 설계·아트웍·전장 제작</h1>
             <p className={styles.heroLead}>
               대전 유성구의 GSPLPLUS는 임베디드 시스템을 기반으로 하드웨어, 소프트웨어,
               <br />
@@ -184,6 +219,27 @@ export default function WorkPage() {
                 함께 수행합니다.
               </p>
             </article>
+          </div>
+        </section>
+
+        {/* 의뢰 가능 업무 (고객 검색어 기준) */}
+        <section className={styles.catalogSection} aria-labelledby="outsourcing-title">
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Outsourcing</p>
+            <h2 id="outsourcing-title">개발 외주·제작 의뢰</h2>
+            <p className={styles.sectionLead}>
+              기업과 연구기관에서 아래와 같은 업무를 의뢰받아 수행해 왔습니다.
+            </p>
+          </div>
+
+          <div className={styles.catalogGrid}>
+            {outsourcing.map((item) => (
+              <article key={item.title} className={styles.catalogCard}>
+                <p className={styles.cardEyebrow}>{item.eyebrow}</p>
+                <h3>{item.title}</h3>
+                <p className={styles.catalogText}>{item.text}</p>
+              </article>
+            ))}
           </div>
         </section>
 
