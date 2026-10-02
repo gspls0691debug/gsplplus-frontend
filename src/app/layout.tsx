@@ -13,20 +13,20 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 // SEO 최적화 메타데이터
-const siteTitle = "대전 PCB 설계·전장 설계 제작 | 가스펠플러스(GSPLPLUS)";
+const siteTitle = "대전 PCB 설계·전장 설계 제작 | 가스펠플러스(Gospel Plus)";
 const siteDescription =
-  "대전 유성구의 PCB 설계·전장 설계 전문 기업 가스펠플러스(GSPLPLUS). 회로설계, PCB 아트웍, 보드 개발·양산, 전장 제작·설치, 펌웨어 개발, 점검장비·시뮬레이터 제작까지 2015년부터 원스톱으로 수행합니다.";
+  "대전 유성구의 PCB 설계·전장 설계 전문 기업 가스펠플러스(Gospel Plus). 회로설계, PCB 아트웍, 보드 개발·양산, 전장 제작·설치, 펌웨어 개발, 점검장비·시뮬레이터 제작까지 2015년부터 원스톱으로 수행합니다.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gspls.kr"),
   title: {
     default: siteTitle,
-    template: "%s | 가스펠플러스(GSPLPLUS)",
+    template: "%s | 가스펠플러스(Gospel Plus)",
   },
   description: siteDescription,
   keywords: [
     "가스펠플러스",
-    "GSPLPLUS",
+    "Gospel Plus",
     "gspls",
     "gspls.kr",
     "임베디드 하드웨어",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     "대전 전장",
     "대전 전장설계",
   ],
-  authors: [{ name: "GSPLPLUS", url: "https://gspls.kr" }],
-  creator: "GSPLPLUS",
-  publisher: "GSPLPLUS",
+  authors: [{ name: "Gospel Plus", url: "https://gspls.kr" }],
+  creator: "Gospel Plus",
+  publisher: "Gospel Plus",
   formatDetection: {
     email: false,
     address: false,
@@ -92,7 +92,7 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "가스펠플러스",
-  alternateName: ["가스펠 플러스", "GSPLPLUS"],
+  alternateName: ["가스펠 플러스", "Gospel Plus"],
   url: "https://gspls.kr/",
 };
 
@@ -101,14 +101,14 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "가스펠플러스",
-  alternateName: "GSPLPLUS",
+  alternateName: "Gospel Plus",
   url: "https://gspls.kr",
   logo: "https://gspls.kr/gsplplus_logo.png",
   description: siteDescription,
   foundingDate: "2015",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "배울1로 277, 4동",
+    streetAddress: "배울1로 277, 3동",
     addressLocality: "유성구",
     addressRegion: "대전광역시",
     postalCode: "34036",

@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "문의하기",
   description:
-    "가스펠플러스(GSPLPLUS)에 이메일로 프로젝트 문의를 보내주세요. 임베디드 하드웨어, 소프트웨어, 시스템 통합 관련 무료 상담을 제공합니다. 1영업일 내 답변드립니다.",
+    "가스펠플러스(Gospel Plus)에 이메일로 프로젝트 문의를 보내주세요. 임베디드 하드웨어, 소프트웨어, 시스템 통합 관련 무료 상담을 제공합니다. 1영업일 내 답변드립니다.",
 };
 
 export default function ContactPage() {
@@ -48,7 +48,7 @@ export default function ContactPage() {
             <p className={styles.infoAddress}>
               대전광역시 유성구
               <br />
-              배울1로 277, 4동
+              배울1로 277, 3동
             </p>
             <Link href="/location" className={styles.infoMore}>
               지도 보기 →

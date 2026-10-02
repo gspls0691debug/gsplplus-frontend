@@ -14,7 +14,7 @@ export default function Footer() {
             <Link href="/" className={styles.brandLogo}>
               <Image
                 src="/gsplplus_logo_dark.png"
-                alt="GSPLPLUS"
+                alt="Gospel Plus"
                 width={160}
                 height={77}
                 className={styles.logoImage}
@@ -78,13 +78,17 @@ export default function Footer() {
             <address className={styles.address}>
               <p className={styles.addressLine}>
                 <Icon name="pin" size={16} className={styles.icon} />
-                대전광역시 유성구 배울1로 277, 4동
+                대전광역시 유성구 배울1로 277, 3동
               </p>
               <p className={styles.addressLine}>
                 <Icon name="mail" size={16} className={styles.icon} />
                 polaris65b@gspls.kr
               </p>
             </address>
+            <p className={styles.addressLine}>
+              <span>사업자등록번호</span>
+              <span>271-44-00076</span>
+            </p>
           </div>
         </div>
       </div>

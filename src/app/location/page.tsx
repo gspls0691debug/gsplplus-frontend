@@ -5,14 +5,14 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "오시는 길",
   description:
-    "가스펠플러스(GSPLPLUS) 오시는 길 안내입니다. 대전광역시 유성구 배울1로 277, 4동에 위치해 있습니다.",
+    "가스펠플러스(Gospel Plus) 오시는 길 안내입니다. 대전광역시 유성구 배울1로 277, 3동에 위치해 있습니다.",
 };
 
 const infoCards = [
   {
     eyebrow: "Address",
     title: "주소",
-    description: "대전광역시 유성구 배울1로 277, 4동",
+    description: "대전광역시 유성구 배울1로 277, 3동",
     color: "#3b82f6",
   },
   {
@@ -90,8 +90,8 @@ export default function LocationPage() {
             <div className={styles.mapBox}>
               <iframe
                 className={styles.mapFrame}
-                title="GSPLPLUS 사무실 위치 지도"
-                src="https://www.google.com/maps?q=%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9C%A0%EC%84%B1%EA%B5%AC%20%EB%B0%B0%EC%9A%B81%EB%A1%9C%20277%204%EB%8F%99&output=embed"
+                title="Gospel Plus 사무실 위치 지도"
+                src="https://www.google.com/maps?q=%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C%20%EC%9C%A0%EC%84%B1%EA%B5%AC%20%EB%B0%B0%EC%9A%B81%EB%A1%9C%20277%203%EB%8F%99&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

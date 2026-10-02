@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "가스펠플러스(GSPLPLUS) - 대전 PCB 설계·전장 설계 제작";
+export const alt = "가스펠플러스(Gospel Plus) - 대전 PCB 설계·전장 설계 제작";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

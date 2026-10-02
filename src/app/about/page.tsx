@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "회사 소개",
   description:
-    "대전 유성구의 가스펠플러스(GSPLPLUS)는 2015년 창립 이래 PCB 설계, 전장 설계·제작, 임베디드 개발을 수행해 온 전문 기업입니다. 기획과 협력, 개발과 구현, 성장 동반의 가치로 고객과 함께 성장합니다.",
+    "대전 유성구의 가스펠플러스(Gospel Plus)는 2015년 창립 이래 PCB 설계, 전장 설계·제작, 임베디드 개발을 수행해 온 전문 기업입니다. 기획과 협력, 개발과 구현, 성장 동반의 가치로 고객과 함께 성장합니다.",
 };
 
 const principles = ["사람을 이롭게", "자연을 아름답게", "사회를 따뜻하게"];
@@ -118,7 +118,7 @@ export default function AboutPage() {
             <p className={styles.eyebrow}>About Us</p>
             <h1 className={styles.heroTitle}>회사 소개</h1>
             <p className={styles.heroLead}>
-              가스펠플러스(GSPLPLUS)는 대전 유성구에서 임베디드 하드웨어와
+              가스펠플러스(Gospel Plus)는 대전 유성구에서 임베디드 하드웨어와
               소프트웨어를 함께 다루는 엔지니어링 기업입니다.
               <br />
               2015년 창업 이후 축적한 경험과 기술을 바탕으로 다양한 산업의

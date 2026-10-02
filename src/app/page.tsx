@@ -122,12 +122,14 @@ export default function Home() {
                 대전 유성구 · 2015년 설립 임베디드 전문 기업
               </span>
               <h1 className={styles.heroTitle}>
-                PCB 설계부터 전장 제작까지
+                PCB 설계부터
+                <br />
+                전장 제작까지
                 <br />
                 <span className={styles.heroTitleAccent}>원스톱 엔지니어링</span>
               </h1>
               <p className={styles.heroDesc}>
-                대전 유성구의 가스펠플러스(GSPLPLUS)는 회로설계·PCB 아트웍,
+                대전 유성구의 가스펠플러스(Gospel Plus)는 회로설계·PCB 아트웍,
                 전장 설계·제작, 펌웨어 개발까지 함께 수행하는 임베디드
                 엔지니어링 기업입니다. 시제품부터 양산, 현장 설치까지 실제
                 적용 가능한 결과물로 연결합니다.

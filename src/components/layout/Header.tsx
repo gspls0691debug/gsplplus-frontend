@@ -50,10 +50,10 @@ export default function Header() {
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.headerInner}>
         {/* 로고 */}
-        <Link href="/" className={styles.brand} aria-label="GSPLPLUS 홈">
+        <Link href="/" className={styles.brand} aria-label="Gospel Plus 홈">
           <Image
             src="/gsplplus_logo.png"
-            alt="GSPLPLUS"
+            alt="Gospel Plus"
             width={67}
             height={32}
             className={styles.logo}

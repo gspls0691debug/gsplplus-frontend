@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "대전 PCB 설계·아트웍·전장 제작",
   description:
-    "대전 PCB 설계·회로설계 외주, 펌웨어 개발, 시제품 제작, PCB 검사 지그, 전장 제작 업체 가스펠플러스(GSPLPLUS). 대전 유성구에서 설계부터 양산·현장 설치까지 대응합니다.",
+    "대전 PCB 설계·회로설계 외주, 펌웨어 개발, 시제품 제작, PCB 검사 지그, 전장 제작 업체 가스펠플러스(Gospel Plus). 대전 유성구에서 설계부터 양산·현장 설치까지 대응합니다.",
 };
 
 const coreBusiness = [
@@ -173,7 +173,7 @@ export default function WorkPage() {
             <p className={styles.eyebrow}>Services</p>
             <h1 className={styles.heroTitle}>대전 PCB 설계·아트웍·전장 제작</h1>
             <p className={styles.heroLead}>
-              대전 유성구의 GSPLPLUS는 임베디드 시스템을 기반으로 하드웨어, 소프트웨어,
+              대전 유성구의 가스펠플러스(Gospel Plus)는 임베디드 시스템을 기반으로 하드웨어, 소프트웨어,
               <br />
               시스템을 개발하고 생산 및 납품까지 이어지는 원스톱 서비스를 제공합니다.
             </p>

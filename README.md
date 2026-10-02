@@ -1,6 +1,6 @@
 # gsplplus-frontend
 
-가스펠플러스(GSPLPLUS) 회사 소개 사이트. Next.js 16 App Router, 전 페이지 정적 생성(서버 코드 없음).
+가스펠플러스(Gospel Plus) 회사 소개 사이트. Next.js 16 App Router, 전 페이지 정적 생성(서버 코드 없음).
 
 - 배포: Vercel → https://gspls.kr
 - 연락처: 이메일 `polaris65b@gspls.kr` (전화번호 없음, 문의 폼 없음)

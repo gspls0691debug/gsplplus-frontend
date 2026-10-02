@@ -10,7 +10,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "포트폴리오",
   description:
-    "대전 가스펠플러스(GSPLPLUS)의 수행 프로젝트: 생체신호 측정 보드, 원전 무선 통신장치, 드론 전원보드 양산, 안마의자·치과 장비 검사설비, 다목적실용위성 6호 보드, 잠수함 시뮬레이터 패널 등.",
+    "대전 가스펠플러스(Gospel Plus)의 수행 프로젝트: 생체신호 측정 보드, 원전 무선 통신장치, 드론 전원보드 양산, 안마의자·치과 장비 검사설비, 다목적실용위성 6호 보드, 잠수함 시뮬레이터 패널 등.",
 };
 
 const featured = projects
