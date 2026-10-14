@@ -13,9 +13,9 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 // SEO 최적화 메타데이터
-const siteTitle = "대전 PCB 설계·전장 설계 제작 | 가스펠플러스(Gospel Plus)";
+const siteTitle = "대전 회로설계·PCB 설계·전장 제작 업체 | 가스펠플러스(Gospel Plus)";
 const siteDescription =
-  "대전 유성구의 PCB 설계·전장 설계 전문 기업 가스펠플러스(Gospel Plus). 회로설계, PCB 아트웍, 보드 개발·양산, 전장 제작·설치, 펌웨어 개발, 점검장비·시뮬레이터 제작까지 2015년부터 원스톱으로 수행합니다.";
+  "대전 유성구의 회로설계·PCB 설계·전장 설계 전문 업체 가스펠플러스(Gospel Plus). 회로설계 외주, PCB 아트웍, 보드 개발·양산, 전장 제작·설치, 펌웨어 개발, 점검장비·시뮬레이터 제작까지 2015년부터 원스톱으로 수행합니다.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gspls.kr"),
@@ -34,6 +34,8 @@ export const metadata: Metadata = {
     "임베디드 개발",
     "전장설계",
     "회로설계",
+    "회로설계업체",
+    "회로설계 외주",
     "PCB설계",
     "보드개발",
     "시스템 통합",
@@ -48,6 +50,10 @@ export const metadata: Metadata = {
     "대전 PCB 설계",
     "대전 전장",
     "대전 전장설계",
+    "대전 회로설계",
+    "충남 회로설계",
+    "충청 PCB 설계",
+    "세종 PCB",
   ],
   authors: [{ name: "Gospel Plus", url: "https://gspls.kr" }],
   creator: "Gospel Plus",
