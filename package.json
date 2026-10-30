@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:public-projects": "node scripts/check-public-projects.mjs"
   },
   "dependencies": {
     "next": "16.2.2",

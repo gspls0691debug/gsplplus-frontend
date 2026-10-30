@@ -49,6 +49,17 @@
   line-height: 1.8;
   color: #64748b;
   margin-bottom: 28px;
+  word-break: keep-all;
+}
+
+.portfolioLink {
+  display: inline-flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  font-weight: 700;
+  color: #a55d00;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .principles {
@@ -248,8 +259,7 @@
 }
 
 .timelineList li {
-  display: grid;
-  grid-template-columns: 100px minmax(0, 1fr);
+  display: flex;
   gap: 12px;
   font-size: 15px;
   line-height: 1.7;
@@ -257,6 +267,7 @@
 }
 
 .timelineDate {
+  flex: 0 0 3em;
   font-weight: 700;
   color: #0f172a;
 }
@@ -320,7 +331,6 @@
   }
 
   .timelineList li {
-    grid-template-columns: 88px minmax(0, 1fr);
     font-size: 14px;
   }
 }
@@ -336,7 +346,11 @@
   }
 
   .timelineList li {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 4px;
+  }
+
+  .timelineDate {
+    flex-basis: auto;
   }
 }

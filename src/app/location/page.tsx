@@ -2,10 +2,23 @@ import type { Metadata } from "next";
 import CTASection from "@/components/sections/CTASection";
 import styles from "./page.module.css";
 
+const title = "오시는 길";
+const description =
+  "가스펠플러스(Gospel Plus) 오시는 길 안내입니다. 대전광역시 유성구 배울1로 277, 3동에 위치해 있습니다.";
+
 export const metadata: Metadata = {
-  title: "오시는 길",
-  description:
-    "가스펠플러스(Gospel Plus) 오시는 길 안내입니다. 대전광역시 유성구 배울1로 277, 3동에 위치해 있습니다.",
+  title,
+  description,
+  alternates: { canonical: "/location" },
+  openGraph: {
+    title,
+    description,
+    url: "/location",
+    siteName: "가스펠플러스",
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 const infoCards = [

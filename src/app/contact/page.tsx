@@ -2,12 +2,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Icon from "@/components/ui/Icon";
+import CopyEmail from "./CopyEmail";
 import styles from "./page.module.css";
 
+const title = "개발 외주·제작 문의";
+const description =
+  "회로·PCB 설계, 펌웨어, PC 측정 프로그램, 검사 지그·전장 제작을 가스펠플러스에 문의하세요. 필요한 기능과 장비 문제, 도면·측정 자료를 바탕으로 개발 범위를 협의합니다.";
+
 export const metadata: Metadata = {
-  title: "문의하기",
-  description:
-    "가스펠플러스(Gospel Plus)에 이메일로 프로젝트 문의를 보내주세요. 임베디드 하드웨어, 소프트웨어, 시스템 통합 관련 무료 상담을 제공합니다. 1영업일 내 답변드립니다.",
+  title,
+  description,
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title,
+    description,
+    url: "/contact",
+    siteName: "가스펠플러스",
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 export default function ContactPage() {
@@ -20,9 +34,10 @@ export default function ContactPage() {
             <p className={styles.eyebrow}>Contact Us</p>
             <h1 className={styles.heroTitle}>프로젝트 상담</h1>
             <p className={styles.heroLead}>
-              프로젝트 내용을 이메일로 보내주시면
+              만들고 싶은 기능이나 현재 장비에서 겪는 문제를 이메일로 알려주세요.
               <br />
-              검토 후 회신드리겠습니다.
+              장비 사진, 요구사항, 보유 도면이나 측정 자료가 있다면 함께 보내주세요.
+              검토 후 필요한 개발 범위를 협의하겠습니다.
             </p>
           </div>
         </section>
@@ -35,7 +50,7 @@ export default function ContactPage() {
               <Icon name="mail" size={32} />
             </div>
             <h3>이메일 문의</h3>
-            <p className={styles.infoLink}>polaris65b@gspls.kr</p>
+            <CopyEmail />
             <p className={styles.infoDesc}>24시간 접수 가능</p>
           </div>
 

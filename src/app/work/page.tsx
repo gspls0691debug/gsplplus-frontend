@@ -2,17 +2,30 @@ import type { Metadata } from "next";
 import CTASection from "@/components/sections/CTASection";
 import styles from "./page.module.css";
 
+const title = "회로·PCB 설계 외주·펌웨어·검사 지그 제작";
+const description =
+  "대전 회로설계·PCB 아트웍 외주, MCU 펌웨어, PC 측정·제어 프로그램, PCB 검사 지그와 전장 제작. 가스펠플러스는 연구용 계측 보드, 시제품·양산, 기존 장비의 간섭 분석·개선 검토를 수행합니다.";
+
 export const metadata: Metadata = {
-  title: "대전 회로설계·PCB 설계·아트웍·전장 제작 업체",
-  description:
-    "회로설계 업체·대전 PCB 설계 외주, 펌웨어 개발, 시제품 제작, PCB 검사 지그, 전장 제작 업체 가스펠플러스(Gospel Plus). 대전 유성구에서 설계부터 양산·현장 설치까지 대응합니다.",
+  title,
+  description,
+  alternates: { canonical: "/work" },
+  openGraph: {
+    title,
+    description,
+    url: "/work",
+    siteName: "가스펠플러스",
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 const coreBusiness = [
   {
     key: "hardware",
     badge: "플랫폼",
-    title: "임베디드 플랫폼 / BT 5.0",
+    title: "임베디드 하드웨어·무선 통신",
     summary:
       "프로세서와 MCU 기반 하드웨어 설계부터 정밀 센서와 통신 모듈 개발까지 수행합니다.",
     items: [
@@ -26,13 +39,14 @@ const coreBusiness = [
   {
     key: "software",
     badge: "소프트웨어",
-    title: "임베디드 소프트웨어·모바일",
+    title: "임베디드 소프트웨어·측정 프로그램",
     summary:
-      "OS 포팅, 펌웨어, 모바일과 PC 애플리케이션까지 연결해 제어 경험을 완성합니다.",
+      "센서와 장비의 데이터를 PC에 표시하고 측정 기록을 저장·재생·분석하는 전용 프로그램을 개발합니다. 보드 통신과 설정 화면, 실행 패키지와 사용 안내까지 필요한 범위를 협의합니다.",
     items: [
       "Non-OS, WinCE, Embedded Linux 포팅",
       "펌웨어 개발",
-      "PC·모바일 기반 앱 개발",
+      "실시간 파형 표시와 측정 데이터 저장·재생·분석",
+      "장비 연동 PC·모바일 앱 개발",
       "제어 및 관제 소프트웨어 구현",
     ],
     color: "#8b5cf6",
@@ -46,14 +60,14 @@ const coreBusiness = [
     items: [
       "점검장비용 PC 애플리케이션 개발",
       "시스템 SI 개발 및 통합 솔루션 구현",
-      "웹 기반 프로그램 솔루션 제공",
+      "장비 통신·설정·측정 화면 연동",
     ],
     color: "#10b981",
   },
   {
     key: "automotive",
     badge: "자동차",
-    title: "자동차 전장 / 자율주행 센서",
+    title: "자동차 전장·휠 속도센서",
     summary:
       "자동차 센서 분야에서 신호 측정과 모듈 설계 역량을 바탕으로 제품을 개발합니다.",
     items: [
@@ -66,7 +80,7 @@ const coreBusiness = [
 
 const businessFields = [
   "입출력 시스템 보드 개발",
-  "원격의료 하드웨어 개발",
+  "센서·생체신호 계측 하드웨어 개발",
   "Bluetooth 4.0 / 5.0 / Wi-Fi 응용 제품 개발",
   "의료기기, 복강경, 스마트 체온계 개발",
   "HR WSS / 휠 파형 센서류 개발",
@@ -79,7 +93,7 @@ const businessFields = [
 ];
 
 const products = [
-  "DI, AI, 디스플레이 입출력 보드",
+  "디지털 입력(DI)·아날로그 입력(AI)·디스플레이 보드",
   "아날로그 제어 계기패널 제어보드",
   "온도 / 압력 / 진동 / IR / 수질 / 가스 / 홀 센서보드",
   "산업용 PCB 검사 시스템 (Mini PC·Windows 11 기반 검사 프로그램 자체 개발)",
@@ -87,7 +101,7 @@ const products = [
 ];
 
 // 의뢰 가능 업무: 고객이 실제로 검색하는 표현(외주·의뢰·업체·시제품·검사 지그, 2026-09-21 구글·네이버 자동완성 기준)으로 작성
-// 내용은 src/data/projects.ts의 공개 프로젝트만 근거 (hidden 건 제외)
+// 공개 프로젝트와 docs/capabilities의 게시용 업무 범위를 근거로 작성한다.
 const outsourcing = [
   {
     eyebrow: "PCB Design",
@@ -97,7 +111,7 @@ const outsourcing = [
   {
     eyebrow: "Prototype & Production",
     title: "PCB 제작·시제품 제작 의뢰",
-    text: "설계한 보드의 샘플·시제품 제작부터 양산까지 이어서 진행합니다. PCB·FPCB 13종 샘플 제작, 드론 전원 보드 양산, 입출력(IO) 보드 양산 등을 수행했습니다.",
+    text: "설계한 보드의 샘플·시제품 제작부터 양산까지 이어서 진행합니다. PCB·FPCB 다품종 샘플 제작, 드론 전원 보드 양산, 입출력(IO) 보드 양산 등을 수행했습니다.",
   },
   {
     eyebrow: "Firmware",
@@ -117,7 +131,12 @@ const outsourcing = [
   {
     eyebrow: "R&D",
     title: "연구 용역·연구 과제 시제품 개발",
-    text: "정부출연연구기관·공공 연구기관의 연구 용역과 연구 과제에 참여해 생체신호(EEG·ERG·PPG·EMG) 계측 보드, 무선 측정 모듈, 복강경 장비 등을 개발해 왔습니다.",
+    text: "정부출연연구기관·공공 연구기관의 연구용 센서·생체신호 계측 보드를 설계하고 펌웨어와 측정 프로그램을 연동합니다. 입력 조건과 게인에 따른 노이즈를 비교하고 원시 데이터와 처리 결과를 분석합니다. 시험 결과 정리와 사용 안내 문서도 개발 범위에 맞춰 협의합니다.",
+  },
+  {
+    eyebrow: "Hardware Analysis",
+    title: "기존 장비의 간섭 분석·개선 검토",
+    text: "장비가 단독으로는 동작하지만 다른 부품과 연결하면 문제가 생기는 경우, 전원·신호·배선 조건과 측정 자료를 함께 검토합니다. 간섭 원인 후보를 정리하고 하드웨어 수정 방안과 확인 절차를 제안합니다.",
   },
 ];
 
@@ -137,9 +156,9 @@ const equipment = [
 // 진행 방식 (연혁에 기록된 설계·양산·검사 지그·전장 설치·정비 이력 기준)
 const processSteps = [
   {
-    title: "상담·요구사항 정리",
-    description: "목적, 필요한 기능, 일정과 수량을 함께 정리하고 개발 범위를 정합니다.",
-    output: "개발 범위·일정 협의",
+    title: "상담·요구사항 정리·기술 검토",
+    description: "요구사항이 아직 구체적이지 않아도 상담하실 수 있습니다. 사용 환경과 필요한 기능을 바탕으로 구성 방식과 부품 후보를 검토하고, 먼저 확인할 기술 과제와 시제품 개발 범위를 정리합니다.",
+    output: "구성안, 검증 항목, 개발 범위·일정 협의",
   },
   {
     title: "회로설계·PCB 아트웍",
@@ -197,7 +216,7 @@ export default function WorkPage() {
               <h3>PCB 설계·아트웍</h3>
               <p className={styles.catalogText}>
                 NXP, TI, STM, AVR 등 MCU·프로세서 기반의 회로설계와 PCB 아트웍을
-                수행합니다. 드론용 파워·통신·센싱 보드, AI 32채널 측정·디스플레이
+                수행합니다. 드론용 파워·통신·센싱 보드, 32채널 아날로그 입력 측정·디스플레이
                 보드, 온도·압력·진동·가스 등 각종 센서 보드를 개발해 왔습니다.
               </p>
               <p className={styles.catalogText}>
@@ -289,6 +308,8 @@ export default function WorkPage() {
             <h2 id="process-title">진행 방식</h2>
             <p className={styles.sectionLead}>
               설계부터 양산·설치까지 끊김 없이 이어서 진행합니다.
+              <br />
+              아래 산출물은 예시이며, 제공 범위는 프로젝트별로 협의합니다.
             </p>
           </div>
 
@@ -300,7 +321,7 @@ export default function WorkPage() {
                 </span>
                 <h3 className={styles.processTitle}>{step.title}</h3>
                 <p className={styles.processDesc}>{step.description}</p>
-                <p className={styles.processOutput}>산출물 · {step.output}</p>
+                <p className={styles.processOutput}>산출물 예시 · {step.output}</p>
               </li>
             ))}
           </ol>
@@ -369,8 +390,8 @@ export default function WorkPage() {
 
         {/* CTA 섹션 */}
         <CTASection
-          title="맞춤형 솔루션이 필요하신가요?"
-          subtitle="프로젝트 요구사항에 맞는 최적의 기술 솔루션을 제안해 드립니다."
+          title="새로운 개발이나 기존 장비 개선이 필요하신가요?"
+          subtitle="만들고 싶은 기능이나 현재 장비에서 겪는 문제를 알려주세요. 장비 사진, 요구사항, 보유 도면이나 측정 자료를 함께 살펴보고 필요한 개발 범위를 협의하겠습니다."
           variant="gradient"
         />
       </main>

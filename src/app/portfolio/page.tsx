@@ -4,21 +4,32 @@
 // 2026-09-18 수정: 대표 프로젝트(연도 없이)와 연도별 프로젝트 섹션으로 분리, 데이터는 src/data/projects.ts
 import type { Metadata } from "next";
 import CTASection from "@/components/sections/CTASection";
-import { projects } from "@/data/projects";
+import { projects, featuredProjects } from "@/data/projects";
 import styles from "./page.module.css";
 
+const title = "PCB·펌웨어·검사장비 개발 포트폴리오";
+const description =
+  "가스펠플러스의 회로·PCB 설계, 펌웨어, PC 측정 프로그램, 검사 지그, 전장 제작 사례입니다. 연구용 ERG 계측, 드론 전원보드, 장비 간섭 분석 등 프로젝트별 수행 업무를 확인하세요.";
+
 export const metadata: Metadata = {
-  title: "포트폴리오",
-  description:
-    "대전 가스펠플러스(Gospel Plus)의 수행 프로젝트: 생체신호 측정 보드, 원전 무선 통신장치, 드론 전원보드 양산, 안마의자·치과 장비 검사설비, 다목적실용위성 6호 보드, 잠수함 시뮬레이터 패널 등.",
+  title,
+  description,
+  alternates: { canonical: "/portfolio" },
+  openGraph: {
+    title,
+    description,
+    url: "/portfolio",
+    siteName: "가스펠플러스",
+    locale: "ko_KR",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title, description },
 };
 
-const featured = projects
-  .filter((project) => project.featured)
-  .sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0));
-
-// 최신 연도부터 (연도 안에서는 projects 순서 유지)
-const years = [...new Set(projects.map((project) => project.year))].sort().reverse();
+// 최신 연도부터 표시하고, 연도를 확정할 수 없는 사례는 마지막에 모은다.
+const years = [...new Set(projects.map((project) => project.year))].sort(
+  (a, b) => (b ?? "").localeCompare(a ?? ""),
+);
 
 export default function PortfolioPage() {
   return (
@@ -30,9 +41,9 @@ export default function PortfolioPage() {
             <p className={styles.eyebrow}>Portfolio</p>
             <h1 className={styles.heroTitle}>포트폴리오</h1>
             <p className={styles.heroLead}>
-              위성·방산 시뮬레이터부터 생체신호·원자력·드론·검사 장비까지,
+              회로·PCB 설계와 펌웨어, 측정 프로그램, 검사 지그와 전장 제작까지,
               <br />
-              실제로 수행한 프로젝트입니다.
+              프로젝트별로 수행한 개발·제작·시험·분석 업무를 소개합니다.
             </p>
           </div>
         </section>
@@ -42,9 +53,10 @@ export default function PortfolioPage() {
           <div className={styles.sectionHeader}>
             <p className={styles.sectionEyebrow}>Featured</p>
             <h2 id="featured-title">대표 프로젝트</h2>
+            <p>대표의 이전 직장 참여 경험과 가스펠플러스 수행 사례를 구분해 소개합니다.</p>
           </div>
           <div className={styles.projectsGrid}>
-            {featured.map((project, index) => (
+            {featuredProjects.map((project, index) => (
               <article
                 key={project.title}
                 className={styles.projectCard}
@@ -61,6 +73,7 @@ export default function PortfolioPage() {
                     <span className={styles.projectClient}>{project.client}</span>
                   )}
                 </div>
+                <p className={styles.projectCredit}>{project.attribution}</p>
                 <h3 className={styles.projectTitle}>{project.title}</h3>
                 <p className={styles.projectDesc}>{project.description}</p>
                 <div className={styles.projectTags}>
@@ -80,17 +93,21 @@ export default function PortfolioPage() {
           <div className={styles.sectionHeader}>
             <p className={styles.sectionEyebrow}>By Year</p>
             <h2 id="by-year-title">연도별 프로젝트</h2>
+            <p>연도는 개발 자료의 최초 기록 또는 회사 연혁 기준이며, 납품 완료 연도를 뜻하지 않습니다.</p>
           </div>
           <div className={styles.yearList}>
             {years.map((year) => (
-              <div key={year} className={styles.yearGroup}>
-                <h3 className={styles.yearLabel}>{year}</h3>
+              <div key={year ?? "undated"} className={styles.yearGroup}>
+                <h3 className={styles.yearLabel}>{year ?? "기타 개발 사례"}</h3>
                 <ul className={styles.yearItems}>
                   {projects
                     .filter((project) => project.year === year)
                     .map((project) => (
                       <li key={project.title} className={styles.yearItem}>
-                        {project.title}
+                        <details className={styles.projectDetails}>
+                          <summary>{project.title}</summary>
+                          <p>{project.description}</p>
+                        </details>
                       </li>
                     ))}
                 </ul>
@@ -102,7 +119,7 @@ export default function PortfolioPage() {
         {/* CTA 섹션 */}
         <CTASection
           title="비슷한 프로젝트가 필요하신가요?"
-          subtitle="귀사의 요구사항에 맞는 최적의 솔루션을 제안해 드립니다. 무료 상담을 통해 프로젝트를 시작하세요."
+          subtitle="만들고 싶은 기능이나 현재 장비에서 겪는 문제를 알려주세요. 보유 도면이나 측정 자료가 있다면 함께 살펴보고 필요한 개발 범위를 협의하겠습니다."
           variant="gradient"
         />
       </main>

@@ -1,21 +1,18 @@
 // 2026-05-22 수정: 신뢰 배지, 파트너 로고, CTA 섹션 추가, 디자인 개선
 // 2026-05-22 수정: 배경 영상 추가, 동적 애니메이션, 디자인 컨셉 적용
 // 2026-05-22 수정: 영상 속도 조절, fade 효과, 스크롤 애니메이션, 흑백 효과
-"use client";
-
-import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/ui/Icon";
 import CTASection from "@/components/sections/CTASection";
-import { projects as allProjects } from "@/data/projects";
+import { projects as allProjects, featuredProjects } from "@/data/projects";
+import HeroVideo from "./HeroVideo";
 import styles from "./page.module.css";
 
 // 통계 데이터
 const stats = [
   { value: "2015", suffix: "", label: "설립 연도", desc: "대전 유성구" },
   { value: "10", suffix: "+", label: "년 개발 경력", desc: "임베디드 하드웨어·소프트웨어" },
-  // 연혁 약 20건 + 회사 자료 2023~2026 중 수리·케이블·구매 대행 제외, 연속 건 묶어서 약 35~40건
-  { value: "50", suffix: "+", label: "수행 프로젝트", desc: "위성·방산 시뮬레이터·의료·산업 장비" },
+  { value: String(allProjects.length), suffix: "", label: "공개 프로젝트", desc: "설계·개발·제작·분석 수행 사례" },
 ];
 
 // 핵심 서비스
@@ -40,8 +37,8 @@ const services: {
     icon: "code",
     title: "임베디드 소프트웨어",
     subtitle: "Embedded Software",
-    desc: "펌웨어, OS 포팅, PC·모바일 앱 연동 제어 시스템 개발",
-    features: ["펌웨어 개발", "OS 포팅", "앱 연동"],
+    desc: "펌웨어와 장비 연동 PC 프로그램, 측정 데이터 표시·저장·분석 기능 개발",
+    features: ["펌웨어 개발", "측정 프로그램", "장비 제어"],
   },
   {
     id: "integration",
@@ -56,64 +53,19 @@ const services: {
     icon: "car",
     title: "자동차 전장",
     subtitle: "Automotive",
-    desc: "자동차 센서 및 자율주행 관련 모듈 설계·개발",
+    desc: "휠 속도센서(WSS)의 보드 설계와 펌웨어 개발",
     features: ["WSS 센서", "파형 분석", "모듈 개발"],
   },
 ];
 
-// 대표 프로젝트: src/data/projects.ts의 featured 항목 (포트폴리오와 공용, 연도 없이 분야로 표시)
-const projects = allProjects
-  .filter((project) => project.featured)
-  .sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0));
-
 export default function Home() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // 영상 속도 조절 (0.8배속 = 20% 감소)
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.8;
-    }
-  }, []);
-
-  // 스크롤 시 요소 동적 표시 (Intersection Observer)
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(styles.visible);
-        }
-      });
-    }, observerOptions);
-
-    // 관찰할 요소들 선택
-    const animatedElements = document.querySelectorAll(`.${styles.animateOnScroll}`);
-    animatedElements.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         {/* ===== 히어로 섹션 (배경 영상 포함) ===== */}
         <section className={styles.hero}>
           {/* 배경 영상 (0.8배속, fade 효과) */}
-          <video
-            ref={videoRef}
-            className={styles.heroVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
+          <HeroVideo />
           <div className={styles.heroOverlay} />
           
           <div className={styles.heroContent}>
@@ -129,10 +81,8 @@ export default function Home() {
                 <span className={styles.heroTitleAccent}>원스톱 엔지니어링</span>
               </h1>
               <p className={styles.heroDesc}>
-                대전 유성구의 가스펠플러스(Gospel Plus)는 회로설계·PCB 아트웍,
-                전장 설계·제작, 펌웨어 개발까지 함께 수행하는 임베디드
-                엔지니어링 기업입니다. 시제품부터 양산, 현장 설치까지 실제
-                적용 가능한 결과물로 연결합니다.
+                대전 유성구의 가스펠플러스는 회로설계·PCB 아트웍과 펌웨어 개발을 수행합니다.
+                시제품 제작부터 보드 양산, 전장 설치까지 함께합니다.
               </p>
               <div className={styles.heroActions}>
                 <Link href="/contact" className={styles.heroPrimaryBtn}>
@@ -165,7 +115,7 @@ export default function Home() {
                   </li>
                   <li>
                     <span className={styles.dot} />
-                    점검장비, 시뮬레이터, VR/AR 장비개발
+                    점검장비, 시뮬레이터, VR 훈련장비 개발
                   </li>
                   <li>
                     <span className={styles.dot} />
@@ -177,7 +127,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <Link href="/contact" className={styles.heroCardCta}>
-                  무료 상담 신청 →
+                  프로젝트 상담 →
                 </Link>
               </div>
             </div>
@@ -192,7 +142,7 @@ export default function Home() {
         </section>
 
         {/* ===== 신뢰 배지 섹션 ===== */}
-        <section className={`${styles.stats} ${styles.animateOnScroll}`} aria-label="주요 실적">
+        <section className={styles.stats} aria-label="주요 실적">
           <div className={styles.statsInner}>
             {stats.map((stat) => (
               <div key={stat.label} className={styles.statCard}>
@@ -208,18 +158,13 @@ export default function Home() {
         </section>
 
         {/* ===== 서비스 섹션 ===== */}
-        <section className={`${styles.services} ${styles.animateOnScroll}`} aria-labelledby="services-title">
+        <section className={styles.services} aria-labelledby="services-title">
           <div className={styles.servicesInner}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionBadge}>Our Services</span>
               <h2 id="services-title" className={styles.sectionTitle}>
                 핵심 서비스
               </h2>
-              <p className={styles.sectionDesc}>
-                하드웨어부터 소프트웨어, 시스템 통합까지
-                <br />
-                원스톱으로 제공하는 전문 엔지니어링 서비스
-              </p>
             </div>
 
             <div className={styles.servicesGrid}>
@@ -262,7 +207,7 @@ export default function Home() {
         </section>
 
         {/* ===== 프로젝트 섹션 ===== */}
-        <section className={`${styles.projects} ${styles.animateOnScroll}`} aria-labelledby="projects-title">
+        <section className={styles.projects} aria-labelledby="projects-title">
           <div className={styles.projectsInner}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionBadge}>Selected Projects</span>
@@ -270,12 +215,12 @@ export default function Home() {
                 대표 프로젝트
               </h2>
               <p className={styles.sectionDesc}>
-                위성·방산 시뮬레이터부터 의료기기·생체신호·원자력까지, 실제로 수행한 프로젝트입니다.
+                대표의 군용 훈련·시험장비 개발 참여 경험과 가스펠플러스의 전장·계측·검사장비·PCB 개발 사례를 소개합니다.
               </p>
             </div>
 
             <div className={styles.projectsGrid}>
-              {projects.map((project) => (
+              {featuredProjects.map((project) => (
                 <article
                   key={project.title}
                   className={styles.projectCard}
@@ -285,7 +230,9 @@ export default function Home() {
                     <span className={styles.projectCategory}>
                       {project.category}
                     </span>
+                    <p className={styles.projectCredit}>{project.attribution}</p>
                     <h3 className={styles.projectTitle}>{project.title}</h3>
+                    <p className={styles.projectDesc}>{project.description}</p>
                   </div>
                 </article>
               ))}
@@ -300,7 +247,7 @@ export default function Home() {
         </section>
 
         {/* ===== 바로가기 카드 섹션 ===== */}
-        <section className={`${styles.quickLinks} ${styles.animateOnScroll}`} aria-label="바로가기">
+        <section className={styles.quickLinks} aria-label="바로가기">
           <div className={styles.quickLinksInner}>
             <Link className={styles.quickCard} href="/about">
               <div className={styles.quickCardIcon}>
@@ -338,7 +285,7 @@ export default function Home() {
                 <span className={styles.quickCardLabel}>Contact</span>
                 <h3>문의하기</h3>
                 <p>
-                  프로젝트 상담을 원하시면 문의해주세요. 1영업일 내 답변드립니다.
+                  필요한 기능이나 장비의 문제를 알려주시면 개발 범위를 함께 검토하겠습니다.
                 </p>
               </div>
               <span className={styles.quickCardArrow}>→</span>
@@ -349,8 +296,8 @@ export default function Home() {
         {/* ===== CTA 섹션 ===== */}
         <CTASection
           title="프로젝트를 시작할 준비가 되셨나요?"
-          subtitle="임베디드 전문가와 함께 여러분의 아이디어를 현실로 만들어 보세요. 무료 상담을 통해 최적의 솔루션을 제안해 드립니다."
-          primaryText="무료 상담 신청"
+          subtitle="회로·PCB 설계, 펌웨어, 측정 프로그램과 검사 지그 개발이 필요하시면 보유 자료와 요구사항을 보내주세요."
+          primaryText="프로젝트 상담"
           primaryHref="/contact"
         />
       </main>

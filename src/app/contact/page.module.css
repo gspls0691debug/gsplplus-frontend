@@ -99,6 +99,27 @@
   margin-top: 6px;
 }
 
+.copyButton {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border: 1px solid #c97707;
+  border-radius: 8px;
+  color: #a55d00;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.copyButton:hover {
+  background: #fff7ed;
+}
+
+.copyStatus {
+  min-height: 1.5em;
+  margin-top: 8px;
+  color: #475569;
+  font-size: 13px;
+}
+
 .infoAddress {
   font-size: 15px;
   line-height: 1.6;

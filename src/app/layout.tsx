@@ -13,9 +13,9 @@ const notoSansKr = Noto_Sans_KR({
 });
 
 // SEO 최적화 메타데이터
-const siteTitle = "대전 회로설계·PCB 설계·전장 제작 업체 | 가스펠플러스(Gospel Plus)";
+const siteTitle = "대전 회로·PCB 설계·펌웨어 개발 업체 | 가스펠플러스(Gospel Plus)";
 const siteDescription =
-  "대전 유성구의 회로설계·PCB 설계·전장 설계 전문 업체 가스펠플러스(Gospel Plus). 회로설계 외주, PCB 아트웍, 보드 개발·양산, 전장 제작·설치, 펌웨어 개발, 점검장비·시뮬레이터 제작까지 2015년부터 원스톱으로 수행합니다.";
+  "대전 유성구 가스펠플러스(Gospel Plus). 회로설계·PCB 아트웍 외주, MCU 펌웨어, PC 측정·제어 프로그램, PCB 검사 지그와 전장 제작을 수행합니다. 시제품·보드 양산, 연구용 계측, 기존 장비의 간섭 분석·개선 검토를 상담하세요.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gspls.kr"),
@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     template: "%s | 가스펠플러스(Gospel Plus)",
   },
   description: siteDescription,
+  alternates: { canonical: "/" },
   keywords: [
     "가스펠플러스",
     "Gospel Plus",
@@ -43,6 +44,9 @@ export const metadata: Metadata = {
     "점검장비",
     "시뮬레이터",
     "펌웨어 개발",
+    "PC 측정 프로그램",
+    "PCB 검사 지그",
+    "전자파 간섭 분석",
     "IoT 개발",
     "자동차 센서",
     "대전 임베디드",
@@ -142,6 +146,11 @@ const jsonLd = {
     "보드 개발",
     "점검장비 개발",
     "시뮬레이터 개발",
+    "MCU 펌웨어 개발",
+    "PC 측정·제어 프로그램",
+    "PCB 검사 지그",
+    "연구용 계측 보드",
+    "전자파 간섭 분석",
   ],
 };
 

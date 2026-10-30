@@ -1,18 +1,20 @@
 // 2026-09-18 신규: 홈·포트폴리오 공용 프로젝트 데이터 (portfolio/page.tsx에서 이동)
 // 연혁과 회사 자료(회사소개서, 납품 근거가 있는 프로젝트 폴더) 기준. 발주처는 업체명 대신 업종으로 표기
+// 공개 보류 데이터가 브라우저 번들에 포함되지 않도록 서버에서만 사용한다.
+import "server-only";
 
 export type Project = {
-  // 시작 연도 (회사 자료의 첫 견적·요구도·설계 기준). 연혁에서 온 항목은 연혁 표기 연도
-  year: string;
+  // 최초 개발 자료 또는 회사 연혁 기준. 자료의 연도가 충돌하면 생략한다.
+  year?: string;
   title: string;
   category: string;
   client?: string;
   description: string;
   tags: string[];
   color: string;
-  // 대표 프로젝트 표시 순서 (분야별 1건, 납품 완료 건만). 없으면 연도별 목록에만 표시
+  // 회사 대표 사례의 표시 순서. 설명에는 확인된 수행 범위만 표시한다.
   featured?: number;
-  // 공개 보류: 진행률 80% 미만(견적·요구도·설계 단계, PCB 발주 전). 진행되면 이 줄만 지우면 목록에 나옴
+  // 공개 보류: 수행 범위·단계와 공개 가능 여부를 확인한 뒤 해제
   hidden?: boolean;
 };
 
@@ -37,6 +39,7 @@ const allProjects: Project[] = [
     hidden: true,
   },
   {
+    // 99번 과제의 2026년 계약·PCB 제작 기록. C027(67번 과제, 2025년)과 별도다.
     year: "2026",
     title: "피로도·호흡 감시용 다중 생체신호 정밀 센싱 모듈 개발",
     category: "생체신호",
@@ -69,9 +72,10 @@ const allProjects: Project[] = [
     title: "무선 망막전위도(ERG) 측정 모듈 개발",
     category: "생체신호",
     client: "정부출연연구기관",
-    description: "마이크로볼트 단위의 ERG 신호를 무선으로 측정하는 모듈의 설계·제작과 성능 시험",
-    tags: ["ERG", "무선", "정밀 측정"],
+    description: "연구용 ERG 측정 모듈의 설계·제작과 시험을 수행하고, 연동 PC 프로그램에 실시간 파형 표시, 측정 기록 저장·재생과 신호 분석 기능을 구성했습니다. 입력·게인 조건별 노이즈를 비교하고, 사용설명서와 배포·진단 자료를 마련해 측정 환경의 운용을 지원했습니다.",
+    tags: ["계측 보드", "펌웨어", "PC 측정 프로그램"],
     color: "#ec4899",
+    featured: 2,
   },
   {
     year: "2026",
@@ -139,13 +143,14 @@ const allProjects: Project[] = [
     color: "#10b981",
   },
   {
-    year: "2026",
+    // R04의 2026-08-11은 분석문서 작성일이며 실제 수행연도는 미확정.
     title: "무인기 GPS 전자파 간섭(EMI) 분석",
     category: "하드웨어",
     client: "무인기 제조 기업",
-    description: "무인기 GPS 수신 장애의 전자파 간섭 원인을 분석하고 하드웨어 수정 방안 제시",
+    description: "전원·통신 하네스 동작과 연관된 GPS 수신 장애를 측정 자료로 분석했습니다. 간섭 원인 후보와 차폐·배선 등 하드웨어 수정 방안을 정리하고, 원인별 확인 절차를 제안했습니다.",
     tags: ["EMI", "GPS", "하드웨어 분석"],
     color: "#10b981",
+    featured: 5,
   },
   {
     year: "2025",
@@ -207,18 +212,18 @@ const allProjects: Project[] = [
   },
   {
     year: "2026",
-    title: "PCB·FPCB 13종 샘플 제작",
+    title: "PCB·FPCB 다품종 샘플 제작",
     category: "생산",
-    description: "FPCB를 포함한 보드 13종의 BOM·거버 검토와 샘플 제작",
+    description: "FPCB를 포함한 여러 보드의 BOM·거버 검토와 샘플 제작",
     tags: ["PCB 제작", "FPCB", "샘플"],
     color: "#14b8a6",
   },
   {
     year: "2025",
-    title: "ESS 활용 전력 피크 제어 소프트웨어 개발",
+    title: "전력 계약정보 조회 프로그램 개발",
     category: "소프트웨어",
-    description: "ESS로 전력 피크를 제어해 전기 요금을 줄이는 소프트웨어와 사용 가이드 개발",
-    tags: ["ESS", "피크 제어", "소프트웨어"],
+    description: "전기요금 절감 검토에 활용할 전력 계약정보를 조회하고 Excel과 연동하는 프로그램 개발과 실행 가이드 작성",
+    tags: ["업무 자동화", "Excel 연동", "소프트웨어"],
     color: "#8b5cf6",
   },
   {
@@ -236,9 +241,9 @@ const allProjects: Project[] = [
     category: "하드웨어",
     client: "드론 제조 기업",
     description: "드론 기체별 PDB(전원 분배)·BEC(전원 변환)·커넥터 보드를 설계하고 양산해 납품",
-    tags: ["드론", "PDB·BEC", "양산"],
+    tags: ["PCB 설계", "전원보드", "보드 양산"],
     color: "#10b981",
-    featured: 6,
+    featured: 4,
   },
   {
     year: "2025",
@@ -248,7 +253,6 @@ const allProjects: Project[] = [
     description: "망막전위도(ERG) 측정용 LCD 백라이트 광자극 보드와 측정 보드를 설계·제작하는 연구 용역",
     tags: ["생체신호", "ERG", "연구 용역"],
     color: "#ec4899",
-    featured: 4,
   },
   {
     year: "2025",
@@ -258,7 +262,6 @@ const allProjects: Project[] = [
     description: "치과 유닛체어 제어보드의 검사 지그 개발. 핀맵·통신 프로토콜 분석, 기구물 설계, 제작까지 수행",
     tags: ["검사 지그", "기구 설계", "프로토콜 분석"],
     color: "#3b82f6",
-    featured: 5,
   },
   {
     year: "2025",
@@ -271,12 +274,13 @@ const allProjects: Project[] = [
   },
   {
     year: "2024",
-    title: "안마기 신제품 PCB 및 검사 지그 개발",
+    title: "안마기 신제품 PCB·제품 검사 지그 개발",
     category: "점검장비",
     client: "헬스케어 가전 기업",
-    description: "안마기 신제품 PCB 설계와 양산 검사용 지그 개발. Mini PC·Windows 11 기반 검사 프로그램(GUI)과 전장을 직접 설계하고 A/S까지 지원",
-    tags: ["PCB 설계", "검사 지그", "자동화"],
+    description: "안마기 신제품의 PCB와 제품을 검사하는 지그 개발. 검사장비의 전기회로·전장 설계, Mini PC·Windows 11 기반 검사 프로그램(GUI) 개발, 장비 제작과 유지보수 지원",
+    tags: ["PCB 검사", "검사 지그", "검사 프로그램"],
     color: "#3b82f6",
+    featured: 3,
   },
   {
     year: "2024",
@@ -314,25 +318,25 @@ const allProjects: Project[] = [
     color: "#f59e0b",
   },
   {
-    year: "2021",
+    // C016·Q08: 소개서 2021.12와 개인 이력 2020의 관계·수행연도 확인 전에는 연도를 표시하지 않는다.
     title: "마그네틱 활용 복강경 마킹 장비 개발",
     category: "의료기기",
-    description: "마그네틱 센서로 인체 내 병변 위치를 표시하는 복강경 장비. AVR(ATmega2560) 탐침봉 보드, ARM Cortex-A53 OS 포팅, Android 앱 개발",
+    description: "마그네틱 센서를 이용한 복강경 위치 측정 장비의 탐침봉 보드·펌웨어 개발, ARM Cortex-A53 기반 OS 포팅과 Android 앱 연동",
     tags: ["의료기기", "마그네틱 센서", "Android"],
     color: "#ec4899",
-    featured: 3,
   },
   {
-    year: "2021",
+    // 소개서의 기술 사례에는 연도가 없고, 스마트온도계 증명서에는 2016/2021이 혼재한다.
+    // 동일 사업·수행 연도 확인 전에는 해당 증명서의 연도를 이 사례에 붙이지 않는다.
     title: "의료용 블루투스 체온계 개발",
     category: "의료기기",
-    description: "nRF52832(BLE) 기반 의료용 체온 측정 장비의 보드 설계, 펌웨어, Android 앱 개발",
+    description: "BLE로 체온 데이터를 전송하는 nRF52832 기반 측정 보드 설계, 펌웨어와 Android 연동 앱 개발",
     tags: ["BLE", "의료기기", "Android"],
     color: "#ec4899",
   },
   {
     year: "2019",
-    title: "AI 32채널 측정 및 디스플레이 보드",
+    title: "32채널 아날로그 입력(AI) 측정·디스플레이 보드",
     category: "하드웨어",
     description: "32채널 아날로그 입력(AI) 측정 및 디스플레이 보드 개발",
     tags: ["아날로그 입력", "계측", "보드 개발"],
@@ -361,24 +365,22 @@ const allProjects: Project[] = [
     description: "잠수함 시뮬레이터용 패널류 7종 개발",
     tags: ["시뮬레이터", "패널", "방산"],
     color: "#64748b",
-    featured: 2,
   },
   {
     year: "2018",
     title: "자동차 휠 속도센서(WSS) 개발",
     category: "자동차 전장",
-    description: "A1339 센서 기반 고해상도 휠 속도센서(HR WSS)와 검증 지그(STM32 M4, Embedded XP, MFC GUI) 개발",
-    tags: ["WSS", "센서", "검증 지그"],
+    description: "A1339 센서를 활용한 고해상도 휠 속도센서(HR WSS)의 임베디드 보드 설계와 펌웨어 개발",
+    tags: ["WSS", "센서", "펌웨어"],
     color: "#ef4444",
   },
   {
-    year: "2016",
+    // C002·Q07: 소개서 2016.12와 개인 이력 2019의 관계·수행연도 확인 전에는 연도를 표시하지 않는다.
     title: "다목적실용위성 6호 Baseband TIU 보드",
     category: "항공우주",
     description: "다목적실용위성 6호용 Baseband TIU 보드 개발",
     tags: ["위성", "보드 개발"],
     color: "#8b5cf6",
-    featured: 1,
   },
   {
     year: "2025",
@@ -477,6 +479,7 @@ const allProjects: Project[] = [
     description: "모션 시뮬레이터의 전장 도면·부품 목록(EBOM) 작성과 서보랙 제작",
     tags: ["모션", "전장 설계", "서보랙"],
     color: "#8b5cf6",
+    featured: 1,
   },
   {
     year: "2024",
@@ -640,13 +643,30 @@ const allProjects: Project[] = [
     color: "#14b8a6",
   },
   {
-    year: "2015",
+    // C001·Q06: 2015.12/2016.01 중복 및 개인 경력과 회사 실적의 관계 확인 필요.
     title: "GRA 시뮬레이터",
     category: "시뮬레이터",
-    description: "GRA 시뮬레이터 개발 (2015.12~2016.01)",
+    description: "GRA 시뮬레이터 개발",
     tags: ["시뮬레이터"],
     color: "#8b5cf6",
   },
 ];
 
 export const projects = allProjects.filter((project) => !project.hidden);
+
+// 대표의 이전 직장 경력은 회사 프로젝트 목록·건수에 합산하지 않는다.
+// 근거: 대표경력_개인.csv의 P021~P025. 전체 시뮬레이션 소프트웨어 개발로 확대하지 않는다.
+export const featuredProjects: (Project & { attribution: string })[] = [
+  {
+    title: "군용 시뮬레이터·항공 점검장비 개발 참여",
+    category: "훈련·시험장비",
+    attribution: "대표 참여 경력 · 이전 직장",
+    description: "UH-60·LYNX·C-130 및 잠수함 시뮬레이터의 계기패널 개발에 참여했습니다. KF-16 간헐결함탐지기의 전기전자 개발 참여 경험도 보유하고 있습니다.",
+    tags: ["군용 시뮬레이터", "계기패널", "항공 점검장비"],
+    color: "#64748b",
+  },
+  ...projects
+    .filter((project) => project.featured)
+    .sort((a, b) => (a.featured ?? 0) - (b.featured ?? 0))
+    .map((project) => ({ ...project, attribution: "가스펠플러스 수행" })),
+];

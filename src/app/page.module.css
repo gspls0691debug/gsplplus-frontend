@@ -13,20 +13,6 @@
   flex-direction: column;
 }
 
-/* ===== 스크롤 시 나타나는 애니메이션 ===== */
-.animateOnScroll {
-  opacity: 0;
-  transform: translateY(40px);
-  filter: grayscale(100%);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out, filter 1s ease-out;
-}
-
-.animateOnScroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-  filter: grayscale(0%);
-}
-
 /* ===== 히어로 섹션 (배경 영상 포함) ===== */
 .hero {
   position: relative;
@@ -607,6 +593,21 @@
   font-weight: 600;
   line-height: 1.4;
   color: #334155;
+  word-break: keep-all;
+}
+
+.projectCredit {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.projectDesc {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #475569;
 }
 
 .projectsAction {
