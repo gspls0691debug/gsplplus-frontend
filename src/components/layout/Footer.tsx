@@ -12,13 +12,16 @@ export default function Footer() {
           {/* 브랜드 영역 */}
           <div className={styles.brand}>
             <Link href="/" className={styles.brandLogo}>
-              <Image
-                src="/gsplplus_logo_dark.png"
-                alt="Gospel Plus"
-                width={160}
-                height={77}
-                className={styles.logoImage}
-              />
+              <picture>
+                <source media="(prefers-color-scheme: dark)" srcSet="/gsplplus_logo_black.png" />
+                <Image
+                  src="/gsplplus_logo_dark.png"
+                  alt="Gospel Plus"
+                  width={160}
+                  height={77}
+                  className={styles.logoImage}
+                />
+              </picture>
             </Link>
             <p className={styles.brandDesc}>
               대전 PCB 설계·전장 설계

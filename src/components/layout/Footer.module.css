@@ -4,6 +4,12 @@
   color: #e2e8f0;
 }
 
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background: #000;
+  }
+}
+
 .footerTop {
   padding: 64px 24px 48px;
 }

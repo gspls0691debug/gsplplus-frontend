@@ -91,14 +91,17 @@ export default function Header() {
       <div className={styles.headerInner}>
         {/* 로고 */}
         <Link ref={brandRef} href="/" className={styles.brand} aria-label="Gospel Plus 홈" onClick={() => setMenuPath(null)}>
-          <Image
-            src="/gsplplus_logo.png"
-            alt="Gospel Plus"
-            width={67}
-            height={32}
-            className={styles.logo}
-            priority
-          />
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcSet="/gsplplus_logo_black.png" />
+            <Image
+              src="/gsplplus_logo.png"
+              alt="Gospel Plus"
+              width={67}
+              height={32}
+              className={styles.logo}
+              priority
+            />
+          </picture>
         </Link>
 
         {/* 데스크탑 네비게이션 */}

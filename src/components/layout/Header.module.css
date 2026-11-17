@@ -35,9 +35,11 @@
 }
 
 .logo {
+  display: block;
   height: 32px;
   width: auto;
 }
+
 
 /* 데스크탑 네비게이션 */
 .desktopNav {
@@ -278,5 +280,47 @@
 
   .overlay {
     top: 57px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .header,
+  .scrolled,
+  .mobileMenu {
+    background: #000;
+  }
+
+  .scrolled {
+    border-bottom-color: #334155;
+  }
+
+  .navLink,
+  .mobileNavLink,
+  .mobileContactLink {
+    color: #e2e8f0;
+  }
+
+  .navLink:hover,
+  .mobileNavLink:hover,
+  .mobileMenuContact {
+    background: #1e293b;
+    color: #e2e8f0;
+  }
+
+  .navLinkActive,
+  .mobileNavLinkActive {
+    color: #ffad42;
+  }
+
+  .mobileNavLinkActive {
+    background: #33200d;
+  }
+
+  .hamburgerLine {
+    background: #e2e8f0;
+  }
+
+  .mobileMenuDivider {
+    background: #334155;
   }
 }
