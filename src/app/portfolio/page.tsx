@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import { projects, featuredProjects } from "@/data/projects";
-import { systems } from "@/data/systems";
+import { systems, testSoftwareFeatures } from "@/data/systems";
 import styles from "./page.module.css";
 
 const title = "PCB·펌웨어·검사장비 개발 포트폴리오";
@@ -100,6 +100,20 @@ export default function PortfolioPage() {
               <br />
               검사할 보드와 검사 항목을 알려주시면 지그 구조와 검사 방식을 함께 정합니다.
             </p>
+          </div>
+          <div className={styles.softwareBox}>
+            <div className={styles.softwareIntro}>
+              <h3>검사 프로그램도 직접 개발합니다</h3>
+              <p>
+                지그 따로, 프로그램 따로 맡기지 않아도 됩니다. 장비를 만든 팀이 검사 프로그램까지 개발하므로
+                하드웨어와 소프트웨어 사이의 책임 공방 없이 한 곳에서 수정·보완합니다.
+              </p>
+            </div>
+            <ul className={styles.softwareList}>
+              {testSoftwareFeatures.map((feature) => (
+                <li key={feature}>{feature}</li>
+              ))}
+            </ul>
           </div>
           <div className={styles.systemsGrid}>
             {systems.map((system) => (

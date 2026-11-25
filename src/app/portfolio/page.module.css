@@ -305,11 +305,64 @@
   color: #475569;
 }
 
+.softwareBox {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 32px;
+  background: #0f172a;
+  border-radius: 20px;
+  color: #e2e8f0;
+}
+
+.softwareIntro h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.softwareIntro p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+.softwareList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.softwareList li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.softwareList li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #f57c00;
+  font-weight: 700;
+}
+
 /* ===== 반응형 ===== */
 @media (max-width: 1024px) {
   .projectsGrid,
   .systemsGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .softwareBox {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -330,7 +383,12 @@
   }
 
   .projectsGrid,
-  .systemsGrid {
+  .systemsGrid,
+  .softwareList {
     grid-template-columns: 1fr;
+  }
+
+  .softwareBox {
+    padding: 24px;
   }
 }
