@@ -257,9 +257,58 @@
   }
 }
 
+/* ===== 시스템 제작 사례 ===== */
+.systemsSection {
+  padding: 80px 24px;
+  background: #ffffff;
+}
+
+.systemsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.systemCard {
+  margin: 0;
+  overflow: hidden;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+}
+
+.systemImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.systemCard figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 20px 20px;
+  line-height: 1.6;
+}
+
+.systemCard strong {
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.systemCard span {
+  font-size: 14px;
+  color: #475569;
+}
+
 /* ===== 반응형 ===== */
 @media (max-width: 1024px) {
-  .projectsGrid {
+  .projectsGrid,
+  .systemsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -270,6 +319,7 @@
   }
 
   .projectsSection,
+  .systemsSection,
   .yearSection {
     padding: 60px 20px;
   }
@@ -279,7 +329,8 @@
     gap: 12px;
   }
 
-  .projectsGrid {
+  .projectsGrid,
+  .systemsGrid {
     grid-template-columns: 1fr;
   }
 }

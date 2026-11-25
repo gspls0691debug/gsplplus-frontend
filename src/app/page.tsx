@@ -1,10 +1,12 @@
 // 2026-05-22 수정: 신뢰 배지, 파트너 로고, CTA 섹션 추가, 디자인 개선
 // 2026-05-22 수정: 배경 영상 추가, 동적 애니메이션, 디자인 컨셉 적용
 // 2026-05-22 수정: 영상 속도 조절, fade 효과, 스크롤 애니메이션, 흑백 효과
+import Image from "next/image";
 import Link from "next/link";
 import Icon, { type IconName } from "@/components/ui/Icon";
 import CTASection from "@/components/sections/CTASection";
 import { projects as allProjects, featuredProjects } from "@/data/projects";
+import { systems } from "@/data/systems";
 import HeroVideo from "./HeroVideo";
 import styles from "./page.module.css";
 
@@ -98,6 +100,7 @@ export default function Home() {
                 <span>전장 제작</span>
                 <span>펌웨어</span>
                 <span>생산·양산</span>
+                <span>검사 지그·장비</span>
               </div>
             </div>
 
@@ -201,6 +204,46 @@ export default function Home() {
             <div className={styles.servicesAction}>
               <Link href="/work" className={styles.servicesBtn}>
                 전체 서비스 보기
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 검사 장비 제작 사례 (2026-11-25 추가) ===== */}
+        <section className={styles.systems} aria-labelledby="systems-title">
+          <div className={styles.projectsInner}>
+            <div className={styles.sectionHeader}>
+              <span className={styles.sectionBadge}>Test Jig &amp; System</span>
+              <h2 id="systems-title" className={styles.sectionTitle}>
+                검사 지그·생산 검사 장비 제작
+              </h2>
+              <p className={styles.sectionDesc}>
+                PCB만 설계하지 않습니다. 보드 검사 지그와 생산 검사 장비, 제어함을 기구·전장·검사 프로그램까지 직접 만들어 납품합니다.
+              </p>
+            </div>
+
+            <div className={styles.projectsGrid}>
+              {systems.slice(0, 3).map((system) => (
+                <figure key={system.src} className={styles.systemCard}>
+                  <Image
+                    src={system.src}
+                    alt={system.title}
+                    width={system.w}
+                    height={system.h}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+                    className={styles.systemImage}
+                  />
+                  <figcaption>
+                    <strong>{system.title}</strong>
+                    <span>{system.desc}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+
+            <div className={styles.projectsAction}>
+              <Link href="/portfolio#systems" className={styles.projectsBtn}>
+                제작 사례 더 보기 →
               </Link>
             </div>
           </div>

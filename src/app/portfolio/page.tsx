@@ -3,8 +3,10 @@
 // 2026-09-18 수정: 발주처를 업종으로 표기, 2025~2026 실적 추가, 회사소개서 사양으로 설명 보강
 // 2026-09-18 수정: 대표 프로젝트(연도 없이)와 연도별 프로젝트 섹션으로 분리, 데이터는 src/data/projects.ts
 import type { Metadata } from "next";
+import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import { projects, featuredProjects } from "@/data/projects";
+import { systems } from "@/data/systems";
 import styles from "./page.module.css";
 
 const title = "PCB·펌웨어·검사장비 개발 포트폴리오";
@@ -84,6 +86,37 @@ export default function PortfolioPage() {
                   ))}
                 </div>
               </article>
+            ))}
+          </div>
+        </section>
+
+        {/* 시스템 제작 사례 (사진) */}
+        <section className={styles.systemsSection} id="systems" aria-labelledby="systems-title">
+          <div className={styles.sectionHeader}>
+            <p className={styles.sectionEyebrow}>Systems</p>
+            <h2 id="systems-title">검사 장비·제어함 제작 사례</h2>
+            <p>
+              PCB 검사 지그, 생산 검사 장비, 제어함을 기구 설계·전장 배선·검사 프로그램까지 한 번에 제작합니다.
+              <br />
+              검사할 보드와 검사 항목을 알려주시면 지그 구조와 검사 방식을 함께 정합니다.
+            </p>
+          </div>
+          <div className={styles.systemsGrid}>
+            {systems.map((system) => (
+              <figure key={system.src} className={styles.systemCard}>
+                <Image
+                  src={system.src}
+                  alt={system.title}
+                  width={system.w}
+                  height={system.h}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+                  className={styles.systemImage}
+                />
+                <figcaption>
+                  <strong>{system.title}</strong>
+                  <span>{system.desc}</span>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </section>
